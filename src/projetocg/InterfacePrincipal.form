@@ -26,35 +26,41 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="painelFrameBuffer" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelXInicialLinha" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelXFinalLinha" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelPontoInicialLinha" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelPontoFinalLinha" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="xFinalLinha" pref="51" max="32767" attributes="0"/>
-                          <Component id="xInicialLinha" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="painelFrameBuffer" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelXInicialLinha" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelXFinalLinha" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelYInicialLinha" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelYFinalLinha" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="yInicialLinha" pref="54" max="32767" attributes="0"/>
-                          <Component id="yFinalLinha" max="32767" attributes="0"/>
+                          <Component id="labelPontoInicialLinha" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPontoFinalLinha" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="xFinalLinha" pref="51" max="32767" attributes="0"/>
+                                  <Component id="xInicialLinha" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelYInicialLinha" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelYFinalLinha" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="yInicialLinha" pref="54" max="32767" attributes="0"/>
+                                  <Component id="yFinalLinha" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="botaoLinha" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="botaoLinha" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelBotaoGrid" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="botaoGrid" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="76" max="32767" attributes="0"/>
           </Group>
@@ -91,7 +97,11 @@
                       <Component id="painelFrameBuffer" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <Component id="labelBotaoGrid" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="botaoGrid" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -132,6 +142,9 @@
       </Layout>
     </Container>
     <Component class="javax.swing.JTextField" name="xInicialLinha">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xInicialLinhaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="yInicialLinha">
       <Events>
@@ -149,6 +162,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="xFinalLinha">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xFinalLinhaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="yFinalLinha">
       <Events>
@@ -181,6 +197,19 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLinhaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelBotaoGrid">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Grid"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="botaoGrid">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Desligado"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoGridActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

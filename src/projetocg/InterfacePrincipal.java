@@ -4,7 +4,9 @@ import java.awt.Graphics;
 import projetocg.Bresenham;
 
 public class InterfacePrincipal extends javax.swing.JFrame {
-
+    
+    public int PIXEL = 10;
+    public boolean controle_grid = false;
     /**
      * Creates new form InterfacePrincipal
      */
@@ -33,6 +35,8 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         labelYInicialLinha = new javax.swing.JLabel();
         labelYFinalLinha = new javax.swing.JLabel();
         botaoLinha = new javax.swing.JButton();
+        labelBotaoGrid = new javax.swing.JLabel();
+        botaoGrid = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1100, 680));
@@ -54,6 +58,12 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             .addGap(0, 468, Short.MAX_VALUE)
         );
 
+        xInicialLinha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xInicialLinhaActionPerformed(evt);
+            }
+        });
+
         yInicialLinha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 yInicialLinhaActionPerformed(evt);
@@ -63,6 +73,12 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         labelPontoInicialLinha.setText("Ponto inicial");
 
         labelPontoFinalLinha.setText("Ponto final");
+
+        xFinalLinha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xFinalLinhaActionPerformed(evt);
+            }
+        });
 
         yFinalLinha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,34 +101,47 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             }
         });
 
+        labelBotaoGrid.setText("Grid");
+
+        botaoGrid.setText("Desligado");
+        botaoGrid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoGridActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(painelFrameBuffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelXInicialLinha)
-                    .addComponent(labelXFinalLinha, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelPontoInicialLinha)
-                    .addComponent(labelPontoFinalLinha)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(xFinalLinha, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                            .addComponent(xInicialLinha))
+                        .addComponent(painelFrameBuffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelYInicialLinha)
-                            .addComponent(labelYFinalLinha))
+                            .addComponent(labelXInicialLinha)
+                            .addComponent(labelXFinalLinha, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(yInicialLinha, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                            .addComponent(yFinalLinha)))
-                    .addComponent(botaoLinha))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelPontoInicialLinha)
+                            .addComponent(labelPontoFinalLinha)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(xFinalLinha, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                                    .addComponent(xInicialLinha))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelYInicialLinha)
+                                    .addComponent(labelYFinalLinha))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(yInicialLinha, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                                    .addComponent(yFinalLinha)))
+                            .addComponent(botaoLinha)))
+                    .addComponent(labelBotaoGrid)
+                    .addComponent(botaoGrid))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -141,7 +170,11 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(painelFrameBuffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(labelBotaoGrid)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoGrid)
+                .addContainerGap())
         );
 
         pack();
@@ -154,7 +187,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void yFinalLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yFinalLinhaActionPerformed
         
     }//GEN-LAST:event_yFinalLinhaActionPerformed
-
+    
     private void botaoLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLinhaActionPerformed
         Graphics g = painelFrameBuffer.getGraphics();
         Bresenham bresenham = new Bresenham();
@@ -165,9 +198,30 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         xFinal = Integer.parseInt(xFinalLinha.getText());
         yFinal = Integer.parseInt(yFinalLinha.getText());
         
-        g.drawLine(xInicial, yInicial, xFinal, yFinal);
+        g.drawRect(xInicial, yInicial, xFinal, yFinal);
         //bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
     }//GEN-LAST:event_botaoLinhaActionPerformed
+
+    private void xInicialLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xInicialLinhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xInicialLinhaActionPerformed
+
+    private void xFinalLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xFinalLinhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xFinalLinhaActionPerformed
+
+    private void botaoGridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGridActionPerformed
+        Graphics g = painelFrameBuffer.getGraphics();
+        if(controle_grid == false){
+            System.out.println("grid ativado!");
+            controle_grid = true;
+            botaoGrid.setText("Ligado");
+        }else{
+            System.out.println("grid desativado!");
+            controle_grid = false;
+            botaoGrid.setText("Desligado");
+        }
+    }//GEN-LAST:event_botaoGridActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,15 +251,19 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new InterfacePrincipal().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton botaoGrid;
     private javax.swing.JButton botaoLinha;
+    private javax.swing.JLabel labelBotaoGrid;
     private javax.swing.JLabel labelPontoFinalLinha;
     private javax.swing.JLabel labelPontoInicialLinha;
     private javax.swing.JLabel labelXFinalLinha;
@@ -218,4 +276,11 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField yFinalLinha;
     private javax.swing.JTextField yInicialLinha;
     // End of variables declaration//GEN-END:variables
+  
+public void construirGrade(){
+    Graphics g = painelFrameBuffer.getGraphics();
+    
+    g.drawLine(0, 0, 200, 150);
+}
+
 }
