@@ -4,8 +4,9 @@ import java.awt.Graphics;
 import projetocg.Bresenham;
 
 public class InterfacePrincipal extends javax.swing.JFrame {
-    
-    public int PIXEL = 10;
+    public int HEIGHT = 640;
+    public int WIDTH  =  460;
+    public int TAMPIXEL = 20;
     public boolean controle_grid = false;
     /**
      * Creates new form InterfacePrincipal
@@ -44,18 +45,19 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         painelFrameBuffer.setBackground(new java.awt.Color(255, 255, 255));
         painelFrameBuffer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         painelFrameBuffer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        painelFrameBuffer.setMaximumSize(new java.awt.Dimension(642, 470));
-        painelFrameBuffer.setMinimumSize(new java.awt.Dimension(642, 470));
+        painelFrameBuffer.setMaximumSize(new java.awt.Dimension(640, 460));
+        painelFrameBuffer.setMinimumSize(new java.awt.Dimension(640, 460));
+        painelFrameBuffer.setPreferredSize(new java.awt.Dimension(640, 460));
 
         javax.swing.GroupLayout painelFrameBufferLayout = new javax.swing.GroupLayout(painelFrameBuffer);
         painelFrameBuffer.setLayout(painelFrameBufferLayout);
         painelFrameBufferLayout.setHorizontalGroup(
             painelFrameBufferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 638, Short.MAX_VALUE)
         );
         painelFrameBufferLayout.setVerticalGroup(
             painelFrameBufferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 468, Short.MAX_VALUE)
+            .addGap(0, 458, Short.MAX_VALUE)
         );
 
         xInicialLinha.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +144,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                             .addComponent(botaoLinha)))
                     .addComponent(labelBotaoGrid)
                     .addComponent(botaoGrid))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +172,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(painelFrameBuffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(labelBotaoGrid)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoGrid)
@@ -212,14 +214,19 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
     private void botaoGridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGridActionPerformed
         Graphics g = painelFrameBuffer.getGraphics();
+  
         if(controle_grid == false){
-            System.out.println("grid ativado!");
             controle_grid = true;
             botaoGrid.setText("Ligado");
+            for(int j=0; j<painelFrameBuffer.getHeight(); j=j+TAMPIXEL){
+                for(int i=0; i<painelFrameBuffer.getWidth(); i=i+TAMPIXEL){
+                    g.drawRect(i, j, TAMPIXEL, TAMPIXEL);
+                }
+            }   
         }else{
-            System.out.println("grid desativado!");
             controle_grid = false;
             botaoGrid.setText("Desligado");
+            painelFrameBuffer.repaint();
         }
     }//GEN-LAST:event_botaoGridActionPerformed
 
