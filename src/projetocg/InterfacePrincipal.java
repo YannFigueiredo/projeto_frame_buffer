@@ -5,7 +5,7 @@ import projetocg.Bresenham;
 
 public class InterfacePrincipal extends javax.swing.JFrame {
     public int HEIGHT = 640;
-    public int WIDTH  =  460;
+    public int WIDTH  =  640;
     public int TAMPIXEL = 20;
     public boolean controle_grid = false;
     /**
@@ -47,7 +47,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         painelFrameBuffer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         painelFrameBuffer.setMaximumSize(new java.awt.Dimension(640, 460));
         painelFrameBuffer.setMinimumSize(new java.awt.Dimension(640, 460));
-        painelFrameBuffer.setPreferredSize(new java.awt.Dimension(640, 460));
+        painelFrameBuffer.setPreferredSize(new java.awt.Dimension(640, 640));
 
         javax.swing.GroupLayout painelFrameBufferLayout = new javax.swing.GroupLayout(painelFrameBuffer);
         painelFrameBuffer.setLayout(painelFrameBufferLayout);
@@ -57,7 +57,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         );
         painelFrameBufferLayout.setVerticalGroup(
             painelFrameBufferLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 458, Short.MAX_VALUE)
+            .addGap(0, 638, Short.MAX_VALUE)
         );
 
         xInicialLinha.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +172,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(painelFrameBuffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelBotaoGrid)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoGrid)
@@ -193,14 +193,26 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void botaoLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLinhaActionPerformed
         Graphics g = painelFrameBuffer.getGraphics();
         Bresenham bresenham = new Bresenham();
-        int xInicial, yInicial, xFinal, yFinal;
+        int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
+        int qtde_pixels = (WIDTH - TAMPIXEL)/TAMPIXEL;
         
+     
         xInicial = Integer.parseInt(xInicialLinha.getText());
         yInicial = Integer.parseInt(yInicialLinha.getText());
         xFinal = Integer.parseInt(xFinalLinha.getText());
         yFinal = Integer.parseInt(yFinalLinha.getText());
+
         
-        g.drawRect(xInicial, yInicial, xFinal, yFinal);
+       
+        if((xInicial > 0 && xInicial <= qtde_pixels) || (xFinal > 0 && xFinal <= qtde_pixels) || 
+            (yInicial > 0 && yInicial <= qtde_pixels) || (yFinal > 0 && yFinal <= qtde_pixels)){
+            g.fillRect(xInicial*TAMPIXEL, yInicial*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+            g.fillRect(xFinal*TAMPIXEL, yFinal*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+        }else{
+            //Alerta de qtde de pixels excedida
+            System.out.print("X e Y só podem ir até 31!");
+        }
+        
         //bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
     }//GEN-LAST:event_botaoLinhaActionPerformed
 
