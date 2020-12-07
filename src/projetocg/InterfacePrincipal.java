@@ -197,7 +197,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         Bresenham bresenham = new Bresenham();
         int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
         int qtde_pixels = (WIDTH - TAMPIXEL)/TAMPIXEL;
-        ArrayList<Integer> prox_ponto = new ArrayList<Integer>();
+        ArrayList<ArrayList<Integer>> prox_ponto = new ArrayList<ArrayList<Integer>>();
         
         xInicial = Integer.parseInt(xInicialLinha.getText());
         yInicial = Integer.parseInt(yInicialLinha.getText());
@@ -209,9 +209,12 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             g.fillRect(xInicial*TAMPIXEL, yInicial*TAMPIXEL, TAMPIXEL, TAMPIXEL);
             g.fillRect(xFinal*TAMPIXEL, yFinal*TAMPIXEL, TAMPIXEL, TAMPIXEL);
             
-            prox_ponto = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
+            for(int i=0;i<3;i++){
+                prox_ponto = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
             
-            g.fillRect(prox_ponto.get(0)*TAMPIXEL, prox_ponto.get(1)*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+                g.fillRect(prox_ponto.get(0).get(0)*TAMPIXEL, prox_ponto.get(0).get(1)*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+                g.fillRect(prox_ponto.get(1).get(0)*TAMPIXEL, prox_ponto.get(1).get(1)*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+            }
         }else{
             //Alerta de qtde de pixels excedida
             System.out.print("X e Y só podem ir até 31!");
