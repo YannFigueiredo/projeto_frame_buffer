@@ -209,11 +209,10 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             g.fillRect(xInicial*TAMPIXEL, yInicial*TAMPIXEL, TAMPIXEL, TAMPIXEL);
             g.fillRect(xFinal*TAMPIXEL, yFinal*TAMPIXEL, TAMPIXEL, TAMPIXEL);
             
-            for(int i=0;i<3;i++){
-                prox_ponto = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
+            prox_ponto = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
             
-                g.fillRect(prox_ponto.get(0).get(0)*TAMPIXEL, prox_ponto.get(0).get(1)*TAMPIXEL, TAMPIXEL, TAMPIXEL);
-                g.fillRect(prox_ponto.get(1).get(0)*TAMPIXEL, prox_ponto.get(1).get(1)*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+            for(int i=0; i<prox_ponto.size(); i++){
+                g.fillRect(prox_ponto.get(i).get(0)*TAMPIXEL, prox_ponto.get(i).get(1)*TAMPIXEL, TAMPIXEL, TAMPIXEL);
             }
         }else{
             //Alerta de qtde de pixels excedida
