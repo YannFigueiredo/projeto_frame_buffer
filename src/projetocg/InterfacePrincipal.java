@@ -1,5 +1,6 @@
 package projetocg;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import projetocg.Bresenham;
 import java.util.ArrayList;
@@ -208,6 +209,12 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             (yInicial > 0 && yInicial <= qtde_pixels) || (yFinal > 0 && yFinal <= qtde_pixels)){
             g.fillRect(xInicial*TAMPIXEL, yInicial*TAMPIXEL, TAMPIXEL, TAMPIXEL);
             g.fillRect(xFinal*TAMPIXEL, yFinal*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+            
+            g.setColor(Color.RED);
+            
+            g.drawLine(xInicial*TAMPIXEL, yInicial*TAMPIXEL, xFinal*TAMPIXEL, yFinal*TAMPIXEL);
+            
+            g.setColor(Color.BLACK);
             
             prox_ponto = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
             
