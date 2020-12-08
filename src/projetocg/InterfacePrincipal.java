@@ -198,7 +198,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         Bresenham bresenham = new Bresenham();
         int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
         int qtde_pixels = (WIDTH - TAMPIXEL)/TAMPIXEL;
-        ArrayList<ArrayList<Integer>> prox_ponto = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> pontos = new ArrayList<Integer>();
         
         xInicial = Integer.parseInt(xInicialLinha.getText());
         yInicial = Integer.parseInt(yInicialLinha.getText());
@@ -216,10 +216,16 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             
             g.setColor(Color.BLACK);
             
-            prox_ponto = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
+            pontos = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
             
-            for(int i=0; i<prox_ponto.size(); i++){
-                g.fillRect(prox_ponto.get(i).get(0)*TAMPIXEL, prox_ponto.get(i).get(1)*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+            int index = 0;
+            for(int i=0; i<pontos.size()/2; i++){
+                int x = pontos.get(index);
+                index++;
+                int y = pontos.get(index);
+                index++;
+            
+                g.fillRect(x*TAMPIXEL, y*TAMPIXEL, TAMPIXEL, TAMPIXEL);
             }
         }else{
             //Alerta de qtde de pixels excedida
