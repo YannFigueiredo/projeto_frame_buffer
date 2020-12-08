@@ -1,5 +1,6 @@
 package projetocg;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import projetocg.Bresenham;
 import java.util.ArrayList;
@@ -197,7 +198,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         Bresenham bresenham = new Bresenham();
         int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
         int qtde_pixels = (WIDTH - TAMPIXEL)/TAMPIXEL;
-        ArrayList<ArrayList<Integer>> prox_ponto = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> pontos = new ArrayList<Integer>();
         
         xInicial = Integer.parseInt(xInicialLinha.getText());
         yInicial = Integer.parseInt(yInicialLinha.getText());
@@ -209,10 +210,22 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             g.fillRect(xInicial*TAMPIXEL, yInicial*TAMPIXEL, TAMPIXEL, TAMPIXEL);
             g.fillRect(xFinal*TAMPIXEL, yFinal*TAMPIXEL, TAMPIXEL, TAMPIXEL);
             
-            prox_ponto = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
+            g.setColor(Color.RED);
             
-            for(int i=0; i<prox_ponto.size(); i++){
-                g.fillRect(prox_ponto.get(i).get(0)*TAMPIXEL, prox_ponto.get(i).get(1)*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+            g.drawLine(xInicial*TAMPIXEL, yInicial*TAMPIXEL, xFinal*TAMPIXEL, yFinal*TAMPIXEL);
+            
+            g.setColor(Color.BLACK);
+            
+            pontos = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
+            
+            int index = 0;
+            for(int i=0; i<pontos.size()/2; i++){
+                int x = pontos.get(index);
+                index++;
+                int y = pontos.get(index);
+                index++;
+            
+                g.fillRect(x*TAMPIXEL, y*TAMPIXEL, TAMPIXEL, TAMPIXEL);
             }
         }else{
             //Alerta de qtde de pixels excedida

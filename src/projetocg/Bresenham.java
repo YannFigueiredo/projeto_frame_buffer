@@ -4,22 +4,29 @@ import java.util.ArrayList;
 import java.util.Arrays; 
 
 public class Bresenham {
-    public ArrayList<ArrayList<Integer>> desenharLinha(int xInicial, int yInicial, int xFinal, int yFinal){
-        ArrayList<ArrayList<Integer>> pontos = new ArrayList<ArrayList<Integer>>();
-        ArrayList<Integer> ponto = new ArrayList<Integer>();
+    public ArrayList<Integer> desenharLinha(int xInicial, int yInicial, int xFinal, int yFinal){
+        ArrayList<Integer> pontos = new ArrayList<Integer>();
         
-        ponto.add(0);
-        ponto.add(31);
+        double m = (double)(yFinal - yInicial)/(xFinal - xInicial);
+        int x = xInicial, y = yInicial;
+        double e = m - 0.5;
         
-        pontos.add(ponto);
+        //Adiciona ponto a lista de pontos
+        pontos.add(x);
+        pontos.add(y);
         
-        ArrayList<Integer> ponto2 = new ArrayList<Integer>();
-        
-        ponto2.add(2);
-        ponto2.add(31);
-        
-        pontos.add(ponto2);
-        
+        while(x < xFinal){
+            if(e >= 0){
+                y = y + 1;
+                e = e - 1;
+            }
+            x = x + 1;
+            e = e + m;
+            
+            pontos.add(x);
+            pontos.add(y);
+        }
+        System.out.println(pontos);
         return pontos;
     }
 }
