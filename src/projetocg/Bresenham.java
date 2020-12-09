@@ -12,10 +12,15 @@ public class Bresenham {
     public void reflexao(){
         m_reflexao = m;
         if(m_reflexao>1 || m_reflexao<-1){
-            aux = x;
-            x = y;
-            y = aux;
+            aux = x1;
+            x1 = y1;
+            y1 = aux;
+            aux = x2;
+            x2 = y2;
+            y2 = aux;
             trocaxy = true;
+            
+            m_reflexao = (double) (y2 - y1)/(x2 - x1);
         }
         if(x1>x2){
             x1 = (x1)*-1;
@@ -41,22 +46,29 @@ public class Bresenham {
             }
         }
         if(trocaxy == true){
-            //para cada ponto gerado
-            aux = x;
-            x = y;
-            y = aux;
+            for(int i=0; i<pontos.size(); i=i+2){
+                aux = pontos.get(i);
+                pontos.set(i, pontos.get(i+1));
+                pontos.set(i+1, aux);
+            }
         }
     }
     
     public ArrayList<Integer> desenharLinha(int xInicial, int yInicial, int xFinal, int yFinal){
         double e = m - 0.5;
         m = (double)(yFinal - yInicial)/(xFinal - xInicial);
-        x = xInicial;
-        y = yInicial;
         x1 = xInicial;
         x2 = xFinal;
         y1 = yInicial;
         y2 = yFinal;
+        
+        reflexao();
+        
+        if(trocaxy == true)
+            m = m_reflexao;
+        
+        x = x1;
+        y = y1;
         
         //Adiciona ponto a lista de pontos
         pontos.add(x);
@@ -74,7 +86,8 @@ public class Bresenham {
             pontos.add(y);
         }
         
-        System.out.println(pontos);
+        reflexao_inversa();
+        
         return pontos;
     }
 }
