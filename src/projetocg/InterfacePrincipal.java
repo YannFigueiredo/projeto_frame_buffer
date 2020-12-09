@@ -207,12 +207,12 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
         if((xInicial > 0 && xInicial <= qtde_pixels) || (xFinal > 0 && xFinal <= qtde_pixels) || 
             (yInicial > 0 && yInicial <= qtde_pixels) || (yFinal > 0 && yFinal <= qtde_pixels)){
-            g.fillRect(xInicial*TAMPIXEL, yInicial*TAMPIXEL, TAMPIXEL, TAMPIXEL);
-            g.fillRect(xFinal*TAMPIXEL, yFinal*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+            g.fillRect(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
+            g.fillRect(xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
             
             g.setColor(Color.RED);
             
-            g.drawLine(xInicial*TAMPIXEL, yInicial*TAMPIXEL, xFinal*TAMPIXEL, yFinal*TAMPIXEL);
+            g.drawLine(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL));
             
             g.setColor(Color.BLACK);
             
@@ -225,7 +225,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                 int y = pontos.get(index);
                 index++;
             
-                g.fillRect(x*TAMPIXEL, y*TAMPIXEL, TAMPIXEL, TAMPIXEL);
+                g.fillRect(x*TAMPIXEL, Math.abs((y-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
             }
         }else{
             //Alerta de qtde de pixels excedida
