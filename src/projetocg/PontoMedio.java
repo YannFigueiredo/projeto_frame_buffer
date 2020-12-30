@@ -1,5 +1,6 @@
 package projetocg;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class PontoMedio {
@@ -15,7 +16,6 @@ public class PontoMedio {
         graf.fillRect((-y+xCentro)*TAMANHOPIXEL, Math.abs(((-x+yCentro)-qtdePixels)*TAMANHOPIXEL), TAMANHOPIXEL, TAMANHOPIXEL);
         graf.fillRect((-y+xCentro)*TAMANHOPIXEL, Math.abs(((x+yCentro)-qtdePixels)*TAMANHOPIXEL), TAMANHOPIXEL, TAMANHOPIXEL);
         graf.fillRect((-x+xCentro)*TAMANHOPIXEL, Math.abs(((y+yCentro)-qtdePixels)*TAMANHOPIXEL), TAMANHOPIXEL, TAMANHOPIXEL);
-        //g.fillRect(0*TAMPIXEL, Math.abs((10-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
     }
     
     public void desenharCirculo(int xCentral, int yCentral, int r, int TAMPIXEL, int qtde_pixels, Graphics g){
@@ -25,14 +25,17 @@ public class PontoMedio {
         qtdePixels = qtde_pixels;
         TAMANHOPIXEL = TAMPIXEL;
         
-        //graf.fillRect(0*TAMANHOPIXEL, Math.abs((7-qtdePixels)*TAMANHOPIXEL), TAMANHOPIXEL, TAMANHOPIXEL);
-        //g.fillRect(0*TAMPIXEL, Math.abs((7-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        
         int x = 0;
         int y = r;
         int e = -r; //Erro
         
         desenha8(x ,y);
+        graf.setColor(Color.red);
+        //Centro
+        graf.fillRect(xCentro*TAMANHOPIXEL, Math.abs(yCentro-qtdePixels)*TAMANHOPIXEL, TAMANHOPIXEL, TAMANHOPIXEL);
+        //Raio
+        graf.drawLine(xCentro*TAMANHOPIXEL, Math.abs(yCentro-qtdePixels)*TAMANHOPIXEL, (yCentro+r)*TAMANHOPIXEL, Math.abs((yCentro+r)-qtdePixels)*TAMANHOPIXEL);
+        graf.setColor(Color.black);
         while(x<=y){
             e = e+(2*x)+1;
             x++;
