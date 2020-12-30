@@ -358,7 +358,11 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void botaoCirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCirculoActionPerformed
         Graphics g = painelFrameBuffer.getGraphics();
         PontoMedio pontoMedio = new PontoMedio();
-        pontoMedio.teste(20*TAMPIXEL, Math.abs((0-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL, g);
+        int xCentral = Integer.parseInt(xCentro.getText());
+        int yCentral = Integer.parseInt(yCentro.getText());
+        int raioCirculo = Integer.parseInt(raio.getText());
+        
+        pontoMedio.desenharCirculo(xCentral, yCentral, raioCirculo, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoCirculoActionPerformed
 
     /**
