@@ -1,7 +1,9 @@
 package projetocg;
 
+import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Arrays; 
+import java.util.Arrays;
+import java.awt.Graphics;
 
 public class Bresenham {
     ArrayList<Integer> pontos = new ArrayList<Integer>();
@@ -89,5 +91,30 @@ public class Bresenham {
         reflexao_inversa();
         
         return pontos;
+    }
+    
+    public void iniciar_breserham(int xInicial, int xFinal, int yInicial, int yFinal, int TAMPIXEL, int qtde_pixels, Graphics g){
+        ArrayList<Integer> pontos = new ArrayList<Integer>();
+        
+        g.fillRect(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
+        g.fillRect(xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
+            
+        g.setColor(Color.RED);
+            
+        g.drawLine(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL));
+            
+        g.setColor(Color.BLACK);
+            
+        pontos = desenharLinha(xInicial, yInicial, xFinal, yFinal);
+            
+        int index = 0;
+        for(int i=0; i<pontos.size()/2; i++){
+            int x = pontos.get(index);
+            index++;
+            int y = pontos.get(index);
+            index++;
+            
+            g.fillRect(x*TAMPIXEL, Math.abs((y-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
+        }
     }
 }

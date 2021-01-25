@@ -280,41 +280,13 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         Graphics g = painelFrameBuffer.getGraphics();
         Bresenham bresenham = new Bresenham();
         int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
-        ArrayList<Integer> pontos = new ArrayList<Integer>();
         
         xInicial = Integer.parseInt(xInicialLinha.getText());
         yInicial = Integer.parseInt(yInicialLinha.getText());
         xFinal = Integer.parseInt(xFinalLinha.getText());
         yFinal = Integer.parseInt(yFinalLinha.getText());
-
-        if((xInicial > 0 && xInicial <= qtde_pixels) || (xFinal > 0 && xFinal <= qtde_pixels) || 
-            (yInicial > 0 && yInicial <= qtde_pixels) || (yFinal > 0 && yFinal <= qtde_pixels)){
-            g.fillRect(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-            g.fillRect(xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-            
-            g.setColor(Color.RED);
-            
-            g.drawLine(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL));
-            
-            g.setColor(Color.BLACK);
-            
-            pontos = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
-            
-            int index = 0;
-            for(int i=0; i<pontos.size()/2; i++){
-                int x = pontos.get(index);
-                index++;
-                int y = pontos.get(index);
-                index++;
-            
-                g.fillRect(x*TAMPIXEL, Math.abs((y-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-            }
-        }else{
-            //Alerta de qtde de pixels excedida
-            System.out.print("X e Y só podem ir até 31!");
-        }
         
-        //bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
+        bresenham.iniciar_breserham(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoLinhaActionPerformed
 
     private void xInicialLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xInicialLinhaActionPerformed
