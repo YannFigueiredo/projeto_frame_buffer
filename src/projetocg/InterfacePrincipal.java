@@ -52,6 +52,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         labelRaioR = new javax.swing.JLabel();
         botaoCirculo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        botaoLosango = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1100, 680));
@@ -161,7 +162,14 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("   0    1    2    3    4");
+        jLabel1.setText("   0    1    2    3    4    5    6    7    8    9    10   11  12  13  14  15 16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31");
+
+        botaoLosango.setText("Desenhar losango");
+        botaoLosango.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLosangoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,10 +179,18 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(364, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(painelFrameBuffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelBotaoGrid)
+                                    .addComponent(botaoGrid))
+                                .addGap(178, 178, 178))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,16 +204,18 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                                     .addComponent(labelPontoFinalLinha)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(xFinalLinha, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                                            .addComponent(xInicialLinha, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
+                                            .addComponent(xFinalLinha)
+                                            .addComponent(xInicialLinha, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(labelYInicialLinha)
                                             .addComponent(labelYFinalLinha))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(yInicialLinha, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                                            .addComponent(yFinalLinha, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)))
+                                            .addComponent(yInicialLinha)
+                                            .addComponent(yFinalLinha, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(botaoLosango))
                                     .addComponent(botaoLinha, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelCentro)
                                     .addGroup(layout.createSequentialGroup()
@@ -208,58 +226,57 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                                         .addComponent(yCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(labelRaio)
                                     .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(botaoCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(labelBotaoGrid)
-                            .addComponent(botaoGrid)))
-                    .addComponent(jLabel1))
-                .addContainerGap(71, Short.MAX_VALUE))
+                                    .addComponent(botaoCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(labelPontoInicialLinha)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(xInicialLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(yInicialLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelXInicialLinha)
-                            .addComponent(labelYInicialLinha))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelPontoFinalLinha)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(xFinalLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(yFinalLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelXFinalLinha)
-                            .addComponent(labelYFinalLinha))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botaoLinha)
-                        .addGap(18, 18, 18)
-                        .addComponent(labelCentro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(xCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelXCentro)
-                            .addComponent(labelYCentro)
-                            .addComponent(yCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelRaio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelRaioR))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botaoCirculo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
-                        .addComponent(labelBotaoGrid)
-                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelBotaoGrid)
+                                .addGap(2, 2, 2))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(labelPontoInicialLinha)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(xInicialLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(yInicialLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelXInicialLinha)
+                                    .addComponent(labelYInicialLinha)
+                                    .addComponent(botaoLosango))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelPontoFinalLinha)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(xFinalLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(yFinalLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelXFinalLinha)
+                                    .addComponent(labelYFinalLinha))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botaoLinha)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelCentro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(xCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelXCentro)
+                                    .addComponent(labelYCentro)
+                                    .addComponent(yCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelRaio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelRaioR))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botaoCirculo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(botaoGrid))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(painelFrameBuffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(painelFrameBuffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addContainerGap(45, Short.MAX_VALUE))
@@ -280,41 +297,13 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         Graphics g = painelFrameBuffer.getGraphics();
         Bresenham bresenham = new Bresenham();
         int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
-        ArrayList<Integer> pontos = new ArrayList<Integer>();
         
         xInicial = Integer.parseInt(xInicialLinha.getText());
         yInicial = Integer.parseInt(yInicialLinha.getText());
         xFinal = Integer.parseInt(xFinalLinha.getText());
         yFinal = Integer.parseInt(yFinalLinha.getText());
-
-        if((xInicial > 0 && xInicial <= qtde_pixels) || (xFinal > 0 && xFinal <= qtde_pixels) || 
-            (yInicial > 0 && yInicial <= qtde_pixels) || (yFinal > 0 && yFinal <= qtde_pixels)){
-            g.fillRect(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-            g.fillRect(xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-            
-            g.setColor(Color.RED);
-            
-            g.drawLine(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL));
-            
-            g.setColor(Color.BLACK);
-            
-            pontos = bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
-            
-            int index = 0;
-            for(int i=0; i<pontos.size()/2; i++){
-                int x = pontos.get(index);
-                index++;
-                int y = pontos.get(index);
-                index++;
-            
-                g.fillRect(x*TAMPIXEL, Math.abs((y-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-            }
-        }else{
-            //Alerta de qtde de pixels excedida
-            System.out.print("X e Y só podem ir até 31!");
-        }
         
-        //bresenham.desenharLinha(xInicial, yInicial, xFinal, yFinal);
+        bresenham.iniciar_breserham(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoLinhaActionPerformed
 
     private void xInicialLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xInicialLinhaActionPerformed
@@ -365,6 +354,26 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         pontoMedio.desenharCirculo(xCentral, yCentral, raioCirculo, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoCirculoActionPerformed
 
+    private void botaoLosangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLosangoActionPerformed
+        Graphics g = painelFrameBuffer.getGraphics();
+        Poligonos losango = new Poligonos();
+        int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
+        int aux, aux2;
+        
+        xInicial = Integer.parseInt(xInicialLinha.getText());
+        yInicial = Integer.parseInt(yInicialLinha.getText());
+        xFinal = Integer.parseInt(xFinalLinha.getText());
+        yFinal = Integer.parseInt(yFinalLinha.getText());
+        
+        losango.desenharLosango(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
+        
+        aux = yInicial;
+        xInicial = xFinal;
+        yInicial = yFinal;
+        xFinal = aux - 1;
+        yFinal = aux;
+    }//GEN-LAST:event_botaoLosangoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -406,6 +415,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoCirculo;
     private javax.swing.JToggleButton botaoGrid;
     private javax.swing.JButton botaoLinha;
+    private javax.swing.JButton botaoLosango;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelBotaoGrid;
     private javax.swing.JLabel labelCentro;
