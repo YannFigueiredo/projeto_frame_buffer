@@ -1,16 +1,21 @@
 package projetocg;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
 
 public class Poligonos {
+    int y_intersection = 5;
     ArrayList<Integer> pontos = new ArrayList<>();
+    ArrayList<Pontos> lista_pontos = new ArrayList<>();
     
-    static class Pts_criticos{
-        int index, dir;
-        float x_intersection, inv_slope;
-    }
+    /*static class Pts_criticos{
+        int index;
+        int dir;
+        float x_intersection;
+        float inv_slope;
+    }*/
     
     public void desenharLosango(int xInicial, int xFinal, int yInicial, int yFinal, int TAMPIXEL, int qtde_pixels, Graphics g){
         /*int avancar_linha = 0;
@@ -67,6 +72,11 @@ public class Poligonos {
         pontos.add(4);
         pontos.add(2);
         
+        for(int i = 0; i < pontos.size(); i = i+2){
+            lista_pontos.add(new Pontos(pontos.get(i), pontos.get(i+1)));
+        }
+        
+        //System.out.println(pontos.size());
         /*
         int recuar_linha = 0;
         for(int i = 0; i<=(xFinal-xInicial); i++){
@@ -75,24 +85,39 @@ public class Poligonos {
             g.fillRect((xInicial+avancar_linha)*TAMPIXEL, Math.abs((yFinal+recuar_linha-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
             recuar_linha--;
         }*/
+        for(int i = 0; i < lista_pontos.size(); i++){
+            System.out.println("X="+lista_pontos.get(i).x+", Y="+lista_pontos.get(i).y+"\n");
+        }
         
+        //varredura_pts_criticos(g);
     }
     
-    public void varredura_pts_criticos(){
-        /*int y_min = Integer.MAX_VALUE, y_max = Integer.MIN_VALUE;
+    public void varredura_pts_criticos(Graphics g){
+        g.setColor(Color.RED);
+        int ind_x, ind_y;
+        int[] p_aux = new int[2];
+        
+        int y_min = Integer.MAX_VALUE, y_max = Integer.MIN_VALUE;
         ArrayList<Pts_criticos> criticos = new ArrayList<>();
         
-        for(int i = 0; i < pontos.length; i++){
-            if(pontos[i].y < y_min){
-                y_min = pontos[i].y;
-            }else if(pontos[i].y > y_max){
-                y_max = pontos[i].y;
+        for(int i = 0; i < pontos.size(); i = i+2){
+            ind_x = i;
+            ind_y = i+1;
+            
+            //System.out.println("X="+pontos.get(ind_x)+"\nY="+pontos.get(ind_y));
+            
+            if(pontos.get(ind_y) < y_min){
+                y_min = pontos.get(ind_y);
+            }else if(pontos.get(ind_y) > y_max){
+                y_max = pontos.get(ind_y);
             }
             
-            Point p_aux = pontos[(i+1)% pontos.length];
-            if(pontos[i].y < p_aux.y){
-                criticos.add(new Pts_criticos(i, pontos[i].x))
+            p_aux[0] = pontos.get((ind_x+1)% pontos.size());
+            p_aux[1] = pontos.get((ind_y+1)% pontos.size());
+            if(pontos.get(ind_y) < p_aux[1]){
+                criticos.add(new Pts_criticos(i, 1, pontos.get(ind_x), 
+                (p_aux[0]-pontos.get(ind_x)*1.0f)/(p_aux[1]-pontos.get(ind_y)*1.0f)));
             }
-        }*/
+        }
     }
 }
