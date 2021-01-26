@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 
-public class Poligonos {
+public class Poligonos implements Comparable<Pts_criticos> {
     int y_intersection = 5;
     ArrayList<Integer> pontos = new ArrayList<>();
     ArrayList<Pontos> lista_pontos = new ArrayList<>();
@@ -94,30 +94,67 @@ public class Poligonos {
     
     public void varredura_pts_criticos(Graphics g){
         g.setColor(Color.RED);
-        int ind_x, ind_y;
         int[] p_aux = new int[2];
         
         int y_min = Integer.MAX_VALUE, y_max = Integer.MIN_VALUE;
         ArrayList<Pts_criticos> criticos = new ArrayList<>();
+        ArrayList<Pts_criticos> criticos_ativos = new ArrayList<>();
         
-        for(int i = 0; i < pontos.size(); i = i+2){
-            ind_x = i;
-            ind_y = i+1;
-            
-            //System.out.println("X="+pontos.get(ind_x)+"\nY="+pontos.get(ind_y));
-            
-            if(pontos.get(ind_y) < y_min){
-                y_min = pontos.get(ind_y);
-            }else if(pontos.get(ind_y) > y_max){
-                y_max = pontos.get(ind_y);
+        //Encontrando bounding box e pontos críticos de y
+        for(int i = 0; i < lista_pontos.size(); i++){
+            if(lista_pontos.get(i).y < y_min){
+                y_min = lista_pontos.get(i).y;
+            }else if(lista_pontos.get(i).y > y_max){
+                y_max = lista_pontos.get(i).y;
             }
             
-            p_aux[0] = pontos.get((ind_x+1)% pontos.size());
-            p_aux[1] = pontos.get((ind_y+1)% pontos.size());
-            if(pontos.get(ind_y) < p_aux[1]){
-                criticos.add(new Pts_criticos(i, 1, pontos.get(ind_x), 
-                (p_aux[0]-pontos.get(ind_x)*1.0f)/(p_aux[1]-pontos.get(ind_y)*1.0f)));
+            p_aux[0] = lista_pontos.get((i+1)% lista_pontos.size()).x;
+            p_aux[1] = lista_pontos.get((i+1)% lista_pontos.size()).y;
+            
+            if(lista_pontos.get(i).y < p_aux[1]){
+                criticos.add(new Pts_criticos(i, 1, lista_pontos.get(i).x, 
+                (p_aux[0]-lista_pontos.get(i).x*1.0f)/(p_aux[1]-lista_pontos.get(i).y*1.0f)));
+            }
+            
+            p_aux[0] = lista_pontos.get((i-1+lista_pontos.size())% lista_pontos.size()).x;
+            p_aux[1] = lista_pontos.get((i-1+lista_pontos.size())% lista_pontos.size()).y;
+            
+            if(lista_pontos.get(i).y < p_aux[1]){
+                criticos.add(new Pts_criticos(i, -1, lista_pontos.get(i).x, 
+                (p_aux[0]-lista_pontos.get(i).x*1.0f)/(p_aux[1]-lista_pontos.get(i).y*1.0f)));
             }
         }
+        
+        int[] p_max = new int[2];
+        Pts_criticosComparator comparator = new Pts_criticosComparator();
+        //Varredura
+        for(int y = y_min; y <= y_max; y++){
+            for(Pts_criticos e : criticos_ativos){
+                e.x_intersection += e.inv_slope;
+            }
+            
+            for(Pts_criticos e : criticos){
+                if(lista_pontos.get(e.index).y == y_intersection){
+                    criticos_ativos.add(e);
+                }
+            }
+        }
+        
+        for(int i = criticos_ativos.size()-1; i >= 0; i--){
+            Pts_criticos e = criticos_ativos.get(i);
+            p_max[0] = lista_pontos.get((e.index+e.dir+lista_pontos.size())%lista_pontos.size()).x;
+            p_max[1] = lista_pontos.get((e.index+e.dir+lista_pontos.size())%lista_pontos.size()).y;
+            
+            if(p_max[1] == y_intersection){
+                criticos_ativos.remove(i);
+            }
+        }
+        
+        criticos_ativos.sort(cmprtr);
+    }
+
+    @Override
+    public int compareTo(Pts_criticos t) {
+        if()
     }
 }
