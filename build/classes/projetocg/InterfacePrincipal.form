@@ -29,72 +29,96 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="364" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="painelFrameBuffer" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelBotaoGrid" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="botaoGrid" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="labelBotaoGrid" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botaoGrid" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                              <Component id="labelXInicialLinha" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labelXFinalLinha" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="labelXCentro" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="labelRaioR" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="labelPontoInicialLinha" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelPontoFinalLinha" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="xFinalLinha" max="32767" attributes="0"/>
+                                              <Component id="xInicialLinha" min="-2" pref="51" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="labelYInicialLinha" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labelYFinalLinha" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="yInicialLinha" max="32767" attributes="0"/>
+                                              <Component id="yFinalLinha" min="-2" pref="51" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="botaoLosango" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="botaoLinha" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="labelCentro" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="xCentro" min="-2" pref="51" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="labelYCentro" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="yCentro" min="-2" pref="51" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="labelRaio" min="-2" max="-2" attributes="0"/>
+                                      <Component id="raio" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Component id="botaoCirculo" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                          <Component id="labelXInicialLinha" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelXFinalLinha" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="labelXCentro" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="labelRaioR" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelXMin" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="xMin" min="-2" pref="51" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="labelXMax" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="xMax" min="-2" pref="51" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelYMin" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelPontoInicialLinha" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelPontoFinalLinha" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="xFinalLinha" max="32767" attributes="0"/>
-                                          <Component id="xInicialLinha" min="-2" pref="51" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Component id="botaoCriarJanela" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="yMin" min="-2" pref="51" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labelYInicialLinha" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelYFinalLinha" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="labelYMax" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="yInicialLinha" max="32767" attributes="0"/>
-                                          <Component id="yFinalLinha" min="-2" pref="51" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="botaoLosango" min="-2" max="-2" attributes="0"/>
+                                      <Component id="yMax" min="-2" pref="51" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="botaoLinha" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <Component id="labelCentro" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="xCentro" min="-2" pref="51" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="labelYCentro" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="yCentro" min="-2" pref="51" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="labelRaio" min="-2" max="-2" attributes="0"/>
-                                  <Component id="raio" min="-2" pref="51" max="-2" attributes="0"/>
-                                  <Component id="botaoCirculo" min="-2" pref="120" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -104,53 +128,65 @@
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="labelBotaoGrid" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="labelPontoInicialLinha" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="xInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="yInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelXInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelYInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="botaoLosango" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelPontoFinalLinha" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="xFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="yFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelXFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelYFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="botaoLinha" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="labelCentro" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="xCentro" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelXCentro" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelYCentro" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="yCentro" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelRaio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="raio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelRaioR" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="botaoCirculo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
+                      <Component id="labelPontoInicialLinha" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="xInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="yInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelXInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelYInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoLosango" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="labelPontoFinalLinha" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="xFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="yFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelXFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelYFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="botaoLinha" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="labelCentro" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="xCentro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelXCentro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelYCentro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="yCentro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="labelRaio" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="raio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelRaioR" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="botaoCirculo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelXMin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="xMin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelXMax" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="xMax" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelYMin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="yMin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelYMax" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="yMax" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="botaoCriarJanela" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="labelBotaoGrid" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="botaoGrid" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="painelFrameBuffer" min="-2" max="-2" attributes="0"/>
@@ -330,6 +366,47 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLosangoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Janela de recorte"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelXMin">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="xmin"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelYMin">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ymin"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="xMin">
+    </Component>
+    <Component class="javax.swing.JTextField" name="yMin">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelXMax">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="xmax"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelYMax">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ymax"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="xMax">
+    </Component>
+    <Component class="javax.swing.JTextField" name="yMax">
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoCriarJanela">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Criar janela"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCriarJanelaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
