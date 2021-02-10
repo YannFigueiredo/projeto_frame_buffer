@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class Poligonos{
+public class Preenchimento{
     int y_intersection = 4;
     ArrayList<Integer> pontos = new ArrayList<>();
     ArrayList<Pontos> lista_pontos = new ArrayList<>();

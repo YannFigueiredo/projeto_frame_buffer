@@ -356,22 +356,15 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
     private void botaoLosangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLosangoActionPerformed
         Graphics g = painelFrameBuffer.getGraphics();
-        Poligonos losango = new Poligonos();
-        int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
-        int aux, aux2;
+        Preenchimento preenchimento = new Preenchimento();
+        int xInicial, yInicial, xFinal, yFinal;
         
         xInicial = Integer.parseInt(xInicialLinha.getText());
         yInicial = Integer.parseInt(yInicialLinha.getText());
         xFinal = Integer.parseInt(xFinalLinha.getText());
         yFinal = Integer.parseInt(yFinalLinha.getText());
         
-        losango.desenharLosango(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
-        
-        aux = yInicial;
-        xInicial = xFinal;
-        yInicial = yFinal;
-        xFinal = aux - 1;
-        yFinal = aux;
+        preenchimento.desenharLosango(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoLosangoActionPerformed
 
     /**

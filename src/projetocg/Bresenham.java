@@ -2,7 +2,6 @@ package projetocg;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.awt.Graphics;
 
 public class Bresenham {
@@ -64,29 +63,33 @@ public class Bresenham {
         
         e = m - 0.5;
         
-        System.out.println("m = "+m+", e = "+e);
+        System.out.println("Pré-reflexão\nm = "+m+", e = "+e);
+        System.out.println("x: "+x1+", y: "+y1);
+        System.out.println("x: "+x2+", y: "+y2);
         
         reflexao();
         
         x = x1;
         y = y1;
         
-        System.out.println("x: "+x+", y: "+y);
-        
-        if(trocaxy == true)
+        if(trocaxy == true || trocax == true || trocay == true){
             m = (double)(y2 - y1)/(x2 - x1);
             e = m - 0.5;
-            System.out.println("m = "+m+", e = "+e);
+        }
+        
+        System.out.println("\nPós-reflexão\nm = "+m+", e = "+e);
+        System.out.println("x: "+x1+", y: "+y1);
+        System.out.println("x: "+x2+", y: "+y2);
         
         //Adiciona ponto a lista de pontos
         pontos.add(new Pontos(x, y));
         
         while(x < x2){
-            System.out.println("x: "+x+", y: "+y+", e: "+e);
             if(e > 0){
-                y = y + 1;
-                e = e - 1;
+                y++;
+                e--;
             }
+            
             x = x + 1;
             e = e + m;
             
