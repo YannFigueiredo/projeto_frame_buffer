@@ -1,13 +1,14 @@
 package projetocg;
 
 import java.awt.Color;
+import java.util.Arrays;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Collections;
 
 
 public class Poligonos{
-    int y_intersection = 5;
+    int y_intersection = 4;
     ArrayList<Integer> pontos = new ArrayList<>();
     ArrayList<Pontos> lista_pontos = new ArrayList<>();
     int TAMPIXEL1, qtde_pixels1;
@@ -129,8 +130,14 @@ public class Poligonos{
             }
         }
         
+        //System.out.println("y_min: "+y_min+", y_max:"+y_max);
+        
+        /*for(int i = 0; i < criticos.size(); i++){
+            System.out.println(criticos.get(i).x_intersection);
+        }*/
+        
         int[] p_max = new int[2];
-      
+        
         //Varredura
         for(int y = y_min; y <= y_max; y++){
             for(Pts_criticos e : criticos_ativos){
@@ -153,11 +160,30 @@ public class Poligonos{
                 }
             }
 
+            //Collections.sort(criticos_ativos);
+            /*ArrayList<Float> lista_criticos_ativos = new ArrayList<>();
+            for(int ind = 0; ind < criticos_ativos.size(); ind++){
+                lista_criticos_ativos.add(criticos_ativos.get(ind).x_intersection);
+            }*/
+            
+            /*System.out.println("Antes do sort");
+            for(int ind = 0; ind < criticos_ativos.size(); ind++){
+                System.out.println(criticos_ativos.get(ind).x_intersection);
+            }*/
+            
+            //Collections.sort(lista_criticos_ativos);
             Collections.sort(criticos_ativos);
+            
+            System.out.println("Depois do sort");
+            for(int ind = 0; ind < criticos_ativos.size(); ind++){
+                System.out.println(criticos_ativos.get(ind).x_intersection);
+            }
 
             for(int i = 0; i < criticos_ativos.size(); i += 2){
                 int x_start = Math.round(criticos_ativos.get(i).x_intersection);
                 int x_end = Math.round(criticos_ativos.get(i+1).x_intersection);
+                //int x_start = Math.round(lista_criticos_ativos.get(i));
+                //int x_end = Math.round(lista_criticos_ativos.get(i+1));
                 for(int x = x_start; x <= x_end; x++){
                     g.fillRect(x*TAMPIXEL1, Math.abs((y-qtde_pixels1)*TAMPIXEL1), TAMPIXEL1, TAMPIXEL1);
                 }
