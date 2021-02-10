@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class Poligonos{
+public class Preenchimento{
     int y_intersection = 4;
     ArrayList<Integer> pontos = new ArrayList<>();
     ArrayList<Pontos> lista_pontos = new ArrayList<>();
@@ -94,7 +94,8 @@ public class Poligonos{
             System.out.println("X="+lista_pontos.get(i).x+", Y="+lista_pontos.get(i).y+"\n");
         }
         
-        varredura_pts_criticos(g);
+        //varredura_pts_criticos(g);
+        preenchimento_recursivo(3, 4, g);
     }
     
     public void varredura_pts_criticos(Graphics g){
@@ -118,7 +119,7 @@ public class Poligonos{
             
             if(lista_pontos.get(i).y < p_aux[1]){
                 criticos.add(new Pts_criticos(i, 1, lista_pontos.get(i).x, 
-                (p_aux[0]-lista_pontos.get(i).x*1.0f)/(p_aux[1]-lista_pontos.get(i).y*1.0f)));
+                ((p_aux[0]-lista_pontos.get(i).x)*1.0f)/((p_aux[1]-lista_pontos.get(i).y)*1.0f)));
             }
             
             p_aux[0] = lista_pontos.get((i-1+lista_pontos.size())% lista_pontos.size()).x;
@@ -126,7 +127,7 @@ public class Poligonos{
             
             if(lista_pontos.get(i).y < p_aux[1]){
                 criticos.add(new Pts_criticos(i, -1, lista_pontos.get(i).x, 
-                (p_aux[0]-lista_pontos.get(i).x*1.0f)/(p_aux[1]-lista_pontos.get(i).y*1.0f)));
+                ((p_aux[0]-lista_pontos.get(i).x)*1.0f)/((p_aux[1]-lista_pontos.get(i).y)*1.0f)));
             }
         }
         
@@ -188,6 +189,37 @@ public class Poligonos{
                     g.fillRect(x*TAMPIXEL1, Math.abs((y-qtde_pixels1)*TAMPIXEL1), TAMPIXEL1, TAMPIXEL1);
                 }
             }
+        }
+    }
+    
+    public boolean verificar_borda(int x, int y){
+        for(int i = 0; i < lista_pontos.size(); i++){
+            if(lista_pontos.get(i).x == x && lista_pontos.get(i).y == y){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean verificar_pixels_pintados(int x, int y, ArrayList<Pontos> pontos_pintados){
+        for(int i = 0; i < pontos_pintados.size(); i++){
+            if(pontos_pintados.get(i).x == x && pontos_pintados.get(i).y == y){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    ArrayList<Pontos> pontos_pintados = new ArrayList<>();
+    public void preenchimento_recursivo(int x, int y, Graphics g){
+        g.setColor(Color.RED);
+        if(verificar_borda(x ,y) == false && verificar_pixels_pintados(x, y, pontos_pintados) == false){
+            g.fillRect(x*TAMPIXEL1, Math.abs((y-qtde_pixels1)*TAMPIXEL1), TAMPIXEL1, TAMPIXEL1);
+            pontos_pintados.add(new Pontos(x, y));
+            preenchimento_recursivo(x+1, y, g);
+            preenchimento_recursivo(x, y+1, g);
+            preenchimento_recursivo(x-1, y, g);
+            preenchimento_recursivo(x, y-1, g);
         }
     }
 }
