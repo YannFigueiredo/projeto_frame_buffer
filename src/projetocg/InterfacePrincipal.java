@@ -12,6 +12,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     public int TAMPIXEL = 20;
     public boolean controle_grid = false;
     int qtde_pixels = (WIDTH - TAMPIXEL)/TAMPIXEL;
+    int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
     /**
      * Creates new form InterfacePrincipal
      */
@@ -356,7 +357,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void botaoLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLinhaActionPerformed
         Graphics g = painelFrameBuffer.getGraphics();
         Bresenham bresenham = new Bresenham();
-        int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
         
         xInicial = Integer.parseInt(xInicialLinha.getText());
         yInicial = Integer.parseInt(yInicialLinha.getText());
@@ -417,7 +417,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void botaoLosangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLosangoActionPerformed
         Graphics g = painelFrameBuffer.getGraphics();
         Preenchimento preenchimento = new Preenchimento();
-        int xInicial, yInicial, xFinal, yFinal;
         
         xInicial = Integer.parseInt(xInicialLinha.getText());
         yInicial = Integer.parseInt(yInicialLinha.getText());
@@ -429,19 +428,31 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
     private void botaoCriarJanelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarJanelaActionPerformed
         Graphics g = painelFrameBuffer.getGraphics();
+        ArrayList<Pontos> pontos = new ArrayList<>();
+        Bresenham bresenham = new Bresenham();
         
         g.setColor(Color.yellow);
         
+        xInicial = Integer.parseInt(xInicialLinha.getText());
+        yInicial = Integer.parseInt(yInicialLinha.getText());
+        xFinal = Integer.parseInt(xFinalLinha.getText());
+        yFinal = Integer.parseInt(yFinalLinha.getText());
         int xmin = Integer.parseInt(xMin.getText());
         int xmax = Integer.parseInt(xMax.getText());
         int ymin = Integer.parseInt(yMin.getText());
         int ymax = Integer.parseInt(yMax.getText());
         
-        for(int x = xmin; x < xmax; x++){
-            for(int y = ymin; y < ymax; y++){
+        pontos.add(new Pontos(xInicial, yInicial));
+        pontos.add(new Pontos(xFinal, yFinal));
+        
+        //Criação da janela de recorte
+        for(int x = xmin; x <= xmax; x++){
+            for(int y = ymin; y <= ymax; y++){
                 g.fillRect(x*TAMPIXEL, Math.abs((y-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
             }
         }
+        
+        bresenham.iniciar_breserham_recorte(pontos.get(0), pontos.get(1), TAMPIXEL, qtde_pixels, g, xmin, xmax, ymin, ymax);
     }//GEN-LAST:event_botaoCriarJanelaActionPerformed
 
     /**
