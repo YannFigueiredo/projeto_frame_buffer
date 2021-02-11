@@ -55,26 +55,6 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="labelPontoInicialLinha" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelPontoFinalLinha" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="xFinalLinha" max="32767" attributes="0"/>
-                                              <Component id="xInicialLinha" min="-2" pref="51" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="labelYInicialLinha" min="-2" max="-2" attributes="0"/>
-                                              <Component id="labelYFinalLinha" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="yInicialLinha" max="32767" attributes="0"/>
-                                              <Component id="yFinalLinha" min="-2" pref="51" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="botaoLosango" min="-2" max="-2" attributes="0"/>
-                                      </Group>
                                       <Component id="botaoLinha" min="-2" pref="120" max="-2" attributes="0"/>
                                       <Component id="labelCentro" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
@@ -88,8 +68,34 @@
                                       <Component id="raio" min="-2" pref="51" max="-2" attributes="0"/>
                                       <Component id="botaoCirculo" min="-2" pref="120" max="-2" attributes="0"/>
                                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="xFinalLinha" max="32767" attributes="0"/>
+                                                      <Component id="xInicialLinha" min="-2" pref="51" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="labelYInicialLinha" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="labelYFinalLinha" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="yInicialLinha" max="32767" attributes="0"/>
+                                                      <Component id="yFinalLinha" min="-2" pref="51" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Component id="labelPontoInicialLinha" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labelPontoFinalLinha" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="botaoPreenchimento" min="-2" pref="110" max="-2" attributes="0"/>
+                                              <Component id="botaoPoligono" min="-2" pref="110" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -135,18 +141,23 @@
                           <Component id="yInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelXInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelYInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="botaoLosango" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoPoligono" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelPontoFinalLinha" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="xFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="yFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelXFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelYFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="labelPontoFinalLinha" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="xFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="yFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelXFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelYFinalLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="botaoPreenchimento" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoLinha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="labelCentro" min="-2" max="-2" attributes="0"/>
@@ -360,12 +371,12 @@
         <Property name="text" type="java.lang.String" value="   0    1    2    3    4    5    6    7    8    9    10   11  12  13  14  15 16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="botaoLosango">
+    <Component class="javax.swing.JButton" name="botaoPreenchimento">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Desenhar losango"/>
+        <Property name="text" type="java.lang.String" value="Preenchimento"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLosangoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoPreenchimentoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -407,6 +418,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCriarJanelaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoPoligono">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pol&#xed;gono"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoPoligonoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

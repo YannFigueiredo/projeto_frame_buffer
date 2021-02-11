@@ -99,7 +99,7 @@ public class Bresenham {
         reflexao_inversa();
     }
     
-    public void iniciar_breserham(int xInicial, int xFinal, int yInicial, int yFinal, int TAMPIXEL, int qtde_pixels, Graphics g){
+    public ArrayList<Pontos> iniciar_breserham(int xInicial, int xFinal, int yInicial, int yFinal, int TAMPIXEL, int qtde_pixels, Graphics g){
         g.fillRect(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
         g.fillRect(xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
             
@@ -117,6 +117,8 @@ public class Bresenham {
             
             g.fillRect(x*TAMPIXEL, Math.abs((y-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
         }
+        
+        return pontos;
     }
     
     public void iniciar_breserham_recorte(Pontos p1, Pontos p2, int TAMPIXEL, int qtde_pixels, Graphics g, int xmin, int xmax, int ymin, int ymax){
