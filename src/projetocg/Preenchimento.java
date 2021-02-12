@@ -1,11 +1,9 @@
 package projetocg;
 
 import java.awt.Color;
-import java.util.Arrays;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Collections;
-
 
 public class Preenchimento{
     int y_intersection = 4;
@@ -15,70 +13,7 @@ public class Preenchimento{
     public void preenchimento(ArrayList<Pontos> pontos, String tipo_preenchimento, int TAMPIXEL1, int qtde_pixels1, Graphics g){
         lista_pontos = pontos;
         TAMPIXEL = TAMPIXEL1;
-        qtde_pixels  = qtde_pixels1;
-        //TAMPIXEL1 = TAMPIXEL;
-        //qtde_pixels1 = qtde_pixels;
-        /*int avancar_linha = 0;
-        g.fillRect(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        for(int i = 0; i<(xFinal-xInicial); i++){
-            avancar_linha++;
-            g.fillRect((xInicial+avancar_linha)*TAMPIXEL, Math.abs((yInicial+avancar_linha-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        }*/
-        
-        //Rasterizando um polígono manualmente
-        /*g.fillRect(3*TAMPIXEL, Math.abs((1-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(3);
-        pontos.add(1);
-        g.fillRect(2*TAMPIXEL, Math.abs((2-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(2);
-        pontos.add(2);
-        g.fillRect(1*TAMPIXEL, Math.abs((3-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(1);
-        pontos.add(3);
-        g.fillRect(0*TAMPIXEL, Math.abs((4-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(0);
-        pontos.add(4);
-        g.fillRect(1*TAMPIXEL, Math.abs((5-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(1);
-        pontos.add(5);
-        g.fillRect(2*TAMPIXEL, Math.abs((6-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(2);
-        pontos.add(6);
-        g.fillRect(3*TAMPIXEL, Math.abs((7-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(3);
-        pontos.add(7);
-        g.fillRect(4*TAMPIXEL, Math.abs((6-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(4);
-        pontos.add(6);
-        g.fillRect(5*TAMPIXEL, Math.abs((5-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(5);
-        pontos.add(5);
-        g.fillRect(6*TAMPIXEL, Math.abs((4-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(6);
-        pontos.add(4);
-        g.fillRect(5*TAMPIXEL, Math.abs((3-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(5);
-        pontos.add(3);
-        g.fillRect(4*TAMPIXEL, Math.abs((2-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        pontos.add(4);
-        pontos.add(2);
-        
-        for(int i = 0; i < pontos.size(); i = i+2){
-            lista_pontos.add(new Pontos(pontos.get(i), pontos.get(i+1)));
-        }
-        
-        //System.out.println(pontos.size());
-        /*
-        int recuar_linha = 0;
-        for(int i = 0; i<=(xFinal-xInicial); i++){
-            avancar_linha++;
-            System.out.println("av="+avancar_linha+",rec="+recuar_linha);
-            g.fillRect((xInicial+avancar_linha)*TAMPIXEL, Math.abs((yFinal+recuar_linha-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-            recuar_linha--;
-        }
-        for(int i = 0; i < lista_pontos.size(); i++){
-            System.out.println("X="+lista_pontos.get(i).x+", Y="+lista_pontos.get(i).y+"\n");
-        }*/
+        qtde_pixels = qtde_pixels1;
         
         if(tipo_preenchimento == "recursivo"){
             preenchimento_recursivo(3, 4, g);
