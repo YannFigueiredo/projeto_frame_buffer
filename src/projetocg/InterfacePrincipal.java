@@ -11,10 +11,11 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     public int WIDTH  =  640;
     public int TAMPIXEL = 20;
     public boolean controle_grid = false;
-    int qtde_pixels = (WIDTH - TAMPIXEL)/TAMPIXEL;
-    int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
-    ArrayList<Pontos> arestas_poligono = new ArrayList<>(); //P1 e P2 das arestas
-    ArrayList<Pontos> pontos_poligono = new ArrayList<>(); //Todos os pontos
+    public int qtde_pixels = (WIDTH - TAMPIXEL)/TAMPIXEL;
+    public int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
+    public ArrayList<Pontos> arestas_poligono = new ArrayList<>(); //P1 e P2 das arestas
+    public ArrayList<Pontos> pontos_poligono = new ArrayList<>(); //Todos os pontos
+    public int ymin, ymax, xmin, xmax;
     /**
      * Creates new form InterfacePrincipal
      */
@@ -484,17 +485,17 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         
         g.setColor(Color.yellow);
         
-        xInicial = Integer.parseInt(xInicialLinha.getText());
-        yInicial = Integer.parseInt(yInicialLinha.getText());
-        xFinal = Integer.parseInt(xFinalLinha.getText());
-        yFinal = Integer.parseInt(yFinalLinha.getText());
-        int xmin = Integer.parseInt(xMin.getText());
-        int xmax = Integer.parseInt(xMax.getText());
-        int ymin = Integer.parseInt(yMin.getText());
-        int ymax = Integer.parseInt(yMax.getText());
+        //xInicial = Integer.parseInt(xInicialLinha.getText());
+        //yInicial = Integer.parseInt(yInicialLinha.getText());
+        //xFinal = Integer.parseInt(xFinalLinha.getText());
+        //yFinal = Integer.parseInt(yFinalLinha.getText());
+        xmin = Integer.parseInt(xMin.getText());
+        xmax = Integer.parseInt(xMax.getText());
+        ymin = Integer.parseInt(yMin.getText());
+        ymax = Integer.parseInt(yMax.getText());
         
-        pontos.add(new Pontos(xInicial, yInicial));
-        pontos.add(new Pontos(xFinal, yFinal));
+        //pontos.add(new Pontos(xInicial, yInicial));
+        //pontos.add(new Pontos(xFinal, yFinal));
         
         //Criação da janela de recorte
         for(int x = xmin; x <= xmax; x++){
@@ -503,7 +504,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             }
         }
         
-        bresenham.iniciar_breserham_recorte(pontos.get(0), pontos.get(1), TAMPIXEL, qtde_pixels, g, xmin, xmax, ymin, ymax);
+        //bresenham.iniciar_breserham_recorte(pontos.get(0), pontos.get(1), TAMPIXEL, qtde_pixels, g, xmin, xmax, ymin, ymax);
     }//GEN-LAST:event_botaoCriarJanelaActionPerformed
 
     private void botaoPoligonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPoligonoActionPerformed
@@ -541,7 +542,18 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botaoRecortePoligonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRecortePoligonoActionPerformed
+        Recorte recorte = new Recorte();
+        Graphics g = painelFrameBuffer.getGraphics();
+        pontos_poligono.add(new Pontos(3, 1));
+        pontos_poligono.add(new Pontos(0, 4));
+        //pontos_poligono.add(new Pontos(0, 4));
+        pontos_poligono.add(new Pontos(3, 7));
+        //pontos_poligono.add(new Pontos(3, 7));
+        pontos_poligono.add(new Pontos(6, 4));
+        //pontos_poligono.add(new Pontos(6, 4));
+        //pontos_poligono.add(new Pontos(3, 1));
         
+        recorte.sutherland_hodgman(pontos_poligono, xmin, xmax, ymin, ymax, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoRecortePoligonoActionPerformed
 
     /**

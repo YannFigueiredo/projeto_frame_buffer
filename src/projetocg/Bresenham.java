@@ -63,9 +63,9 @@ public class Bresenham {
         
         e = m - 0.5;
         
-        System.out.println("Pré-reflexão\nm = "+m+", e = "+e);
-        System.out.println("x: "+x1+", y: "+y1);
-        System.out.println("x: "+x2+", y: "+y2);
+        //System.out.println("Pré-reflexão\nm = "+m+", e = "+e);
+        //System.out.println("x: "+x1+", y: "+y1);
+        //System.out.println("x: "+x2+", y: "+y2);
         
         reflexao();
         
@@ -77,9 +77,9 @@ public class Bresenham {
             e = m - 0.5;
         }
         
-        System.out.println("\nPós-reflexão\nm = "+m+", e = "+e);
-        System.out.println("x: "+x1+", y: "+y1);
-        System.out.println("x: "+x2+", y: "+y2);
+        //System.out.println("\nPós-reflexão\nm = "+m+", e = "+e);
+        //System.out.println("x: "+x1+", y: "+y1);
+        //System.out.println("x: "+x2+", y: "+y2);
         
         //Adiciona ponto a lista de pontos
         pontos.add(new Pontos(x, y));
@@ -100,17 +100,20 @@ public class Bresenham {
     }
     
     public ArrayList<Pontos> iniciar_breserham(int xInicial, int xFinal, int yInicial, int yFinal, int TAMPIXEL, int qtde_pixels, Graphics g){
-        g.fillRect(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        g.fillRect(xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
+        //g.fillRect(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
+        //g.fillRect(xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
             
-        g.setColor(Color.RED);
+        //g.setColor(Color.RED);
             
-        g.drawLine(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL));
+        //g.drawLine(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL));
             
-        g.setColor(Color.BLACK);
+        //g.setColor(Color.BLACK);
+        
+        System.out.println("\nBresenham\n");
+        System.out.println("x1: "+xInicial+", y1: "+yInicial+", x2: "+xFinal+", y2: "+yFinal);
             
         desenharLinha(xInicial, yInicial, xFinal, yFinal);
-            
+        
         for(int i=0; i<pontos.size(); i++){
             x = pontos.get(i).x;
             y = pontos.get(i).y;
