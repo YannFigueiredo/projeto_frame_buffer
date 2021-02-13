@@ -1,18 +1,10 @@
 package projetocg;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class Recorte {
-    int TAMPIXEL, qtde_pixels;
-    
-    public void sutherland_hodgman(ArrayList<Pontos> poligono, int xmin, int xmax, int ymin, int ymax, int tam,  int qtde, Graphics g){
-        TAMPIXEL = tam;
-        qtde_pixels = qtde;
-        
+    public ArrayList<Pontos> sutherland_hodgman(ArrayList<Pontos> poligono, int xmin, int xmax, int ymin, int ymax){
         System.out.println("Polígono\n");
-        //Construir um poligono nos moldes ((p1,p2)(p1,p2)(p1,p2))
         for(int i=0; i<poligono.size(); i++){
             System.out.println("x: "+poligono.get(i).x+", y: "+poligono.get(i).y);
         }
@@ -38,7 +30,7 @@ public class Recorte {
                 }
             }
         }
-        System.out.println("Novo polígono (após verificar xmin)\n");
+        System.out.println("\nNovo polígono (após verificar xmin)\n");
         for(int i=0; i<novo_poligono.size(); i++){
             System.out.println("x: "+novo_poligono.get(i).x+", y: "+novo_poligono.get(i).y);
         }
@@ -121,36 +113,7 @@ public class Recorte {
             System.out.println("x: "+novo_poligono3.get(i).x+", y: "+novo_poligono3.get(i).y);
         }
         
-        desenharPoligonoRecortado(novo_poligono3, g);
-    }
-
-    private void desenharPoligonoRecortado(ArrayList<Pontos> novo_poligono, Graphics g) {
-        Bresenham bresenham = new Bresenham();
-        ArrayList<Pontos> poligono_desenhado = new ArrayList<>();
-        ArrayList<Pontos> poligono_adaptado = new ArrayList<>(); //Poligono com arestas nos  moldes do bresenham
-        //g.setColor(Color.blue);
-        
-        //Construir um poligono nos moldes ((p1,p2)(p1,p2)(p1,p2))
-        for(int i=0; i<novo_poligono.size(); i++){
-            Pontos p1 = novo_poligono.get(i);
-            Pontos p2 = novo_poligono.get((i+1)%novo_poligono.size());
-            poligono_adaptado.add(p1);
-            poligono_adaptado.add(p2);
-        }
-        
-        System.out.println("Novo polígono adaptado\n");
-        for(int i=0; i<poligono_adaptado.size(); i++){
-            System.out.println("x: "+poligono_adaptado.get(i).x+", y: "+poligono_adaptado.get(i).y);
-        }
-        
-        //System.out.println("\nPontos\n");
-        for(int i=0; i<poligono_adaptado.size(); i=i+2){
-            int x1 = poligono_adaptado.get(i).x;
-            int y1 = poligono_adaptado.get(i).y;
-            int x2 = poligono_adaptado.get(i+1).x;
-            int y2 = poligono_adaptado.get(i+1).y;
-            //System.out.println("x1: "+poligono_adaptado.get(i).x+", y1: "+poligono_adaptado.get(i).y+", x2: "+poligono_adaptado.get(i+1).x+", y2: "+poligono_adaptado.get(i+1).y);
-            poligono_desenhado = bresenham.iniciar_breserham(x1, x2, y1, y2, TAMPIXEL, qtde_pixels, g);
-        }
+        //desenharPoligonoRecortado(novo_poligono3, g);
+        return novo_poligono3;
     }
 }

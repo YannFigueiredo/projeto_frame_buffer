@@ -1,6 +1,5 @@
 package projetocg;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.awt.Graphics;
 
@@ -60,7 +59,6 @@ public class Bresenham {
         y2 = yFinal;
         
         m = (double)(y2 - y1)/(x2 - x1);
-        
         e = m - 0.5;
         
         //System.out.println("Pré-reflexão\nm = "+m+", e = "+e);
@@ -83,7 +81,7 @@ public class Bresenham {
         
         //Adiciona ponto a lista de pontos
         pontos.add(new Pontos(x, y));
-        
+     
         while(x < x2){
             if(e > 0){
                 y++;
@@ -99,18 +97,11 @@ public class Bresenham {
         reflexao_inversa();
     }
     
-    public ArrayList<Pontos> iniciar_breserham(int xInicial, int xFinal, int yInicial, int yFinal, int TAMPIXEL, int qtde_pixels, Graphics g){
-        //g.fillRect(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        //g.fillRect(xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-            
-        //g.setColor(Color.RED);
-            
-        //g.drawLine(xInicial*TAMPIXEL, Math.abs((yInicial-qtde_pixels)*TAMPIXEL), xFinal*TAMPIXEL, Math.abs((yFinal-qtde_pixels)*TAMPIXEL));
-            
-        //g.setColor(Color.BLACK);
-        
-        System.out.println("\nBresenham\n");
-        System.out.println("x1: "+xInicial+", y1: "+yInicial+", x2: "+xFinal+", y2: "+yFinal);
+    public void iniciar_breserham(int xInicial, int xFinal, int yInicial, int yFinal, int TAMPIXEL, int qtde_pixels, Graphics g){
+        pontos.clear();
+        trocax = false;
+        trocay = false;
+        trocaxy = false;
             
         desenharLinha(xInicial, yInicial, xFinal, yFinal);
         
@@ -120,20 +111,9 @@ public class Bresenham {
             
             g.fillRect(x*TAMPIXEL, Math.abs((y-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
         }
-        
-        return pontos;
     }
     
-    public void iniciar_breserham_recorte(Pontos p1, Pontos p2, int TAMPIXEL, int qtde_pixels, Graphics g, int xmin, int xmax, int ymin, int ymax){
-        //g.fillRect(p1.x*TAMPIXEL, Math.abs((p1.y-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-        //g.fillRect(p2.x*TAMPIXEL, Math.abs((p2.y-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
-            
-        g.setColor(Color.RED);
-            
-        g.drawLine(p1.x*TAMPIXEL, Math.abs((p1.y-qtde_pixels)*TAMPIXEL), p2.x*TAMPIXEL, Math.abs((p2.y-qtde_pixels)*TAMPIXEL));
-            
-        g.setColor(Color.BLACK);
-            
+    public void iniciar_breserham_recorte(Pontos p1, Pontos p2, int TAMPIXEL, int qtde_pixels, Graphics g, int xmin, int xmax, int ymin, int ymax){ 
         desenharLinha(p1.x, p1.y, p2.x, p2.y);
             
         for(int i=0; i<pontos.size(); i++){

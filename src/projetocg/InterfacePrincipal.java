@@ -480,22 +480,13 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
     private void botaoCriarJanelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarJanelaActionPerformed
         Graphics g = painelFrameBuffer.getGraphics();
-        ArrayList<Pontos> pontos = new ArrayList<>();
-        Bresenham bresenham = new Bresenham();
         
         g.setColor(Color.yellow);
         
-        //xInicial = Integer.parseInt(xInicialLinha.getText());
-        //yInicial = Integer.parseInt(yInicialLinha.getText());
-        //xFinal = Integer.parseInt(xFinalLinha.getText());
-        //yFinal = Integer.parseInt(yFinalLinha.getText());
         xmin = Integer.parseInt(xMin.getText());
         xmax = Integer.parseInt(xMax.getText());
         ymin = Integer.parseInt(yMin.getText());
         ymax = Integer.parseInt(yMax.getText());
-        
-        //pontos.add(new Pontos(xInicial, yInicial));
-        //pontos.add(new Pontos(xFinal, yFinal));
         
         //Criação da janela de recorte
         for(int x = xmin; x <= xmax; x++){
@@ -503,8 +494,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                 g.fillRect(x*TAMPIXEL, Math.abs((y-qtde_pixels)*TAMPIXEL), TAMPIXEL, TAMPIXEL);
             }
         }
-        
-        //bresenham.iniciar_breserham_recorte(pontos.get(0), pontos.get(1), TAMPIXEL, qtde_pixels, g, xmin, xmax, ymin, ymax);
     }//GEN-LAST:event_botaoCriarJanelaActionPerformed
 
     private void botaoPoligonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPoligonoActionPerformed
@@ -517,7 +506,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         xFinal = Integer.parseInt(xFinalLinha.getText());
         yFinal = Integer.parseInt(yFinalLinha.getText());
         
-        pontos_aresta = bresenham.iniciar_breserham(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
+        bresenham.iniciar_breserham(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
         
         //Adiciona P1 e P2 de uma aresta do poligono em um array
         arestas_poligono.add(new Pontos(xInicial, yInicial));
@@ -543,17 +532,22 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
     private void botaoRecortePoligonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRecortePoligonoActionPerformed
         Recorte recorte = new Recorte();
+        Bresenham bresenham = new Bresenham();
         Graphics g = painelFrameBuffer.getGraphics();
+        
         pontos_poligono.add(new Pontos(3, 1));
         pontos_poligono.add(new Pontos(0, 4));
-        //pontos_poligono.add(new Pontos(0, 4));
         pontos_poligono.add(new Pontos(3, 7));
-        //pontos_poligono.add(new Pontos(3, 7));
         pontos_poligono.add(new Pontos(6, 4));
-        //pontos_poligono.add(new Pontos(6, 4));
-        //pontos_poligono.add(new Pontos(3, 1));
         
-        recorte.sutherland_hodgman(pontos_poligono, xmin, xmax, ymin, ymax, TAMPIXEL, qtde_pixels, g);
+        ArrayList<Pontos> poligono_recortado = recorte.sutherland_hodgman(pontos_poligono, xmin, xmax, ymin, ymax);
+        
+        for(int i = 0; i < poligono_recortado.size(); i++){
+            Pontos p1 = poligono_recortado.get(i);
+            Pontos p2 = poligono_recortado.get((i+1)%poligono_recortado.size());
+            
+            bresenham.iniciar_breserham(p1.x, p2.x, p1.y, p2.y, TAMPIXEL, qtde_pixels, g);
+        }
     }//GEN-LAST:event_botaoRecortePoligonoActionPerformed
 
     /**
