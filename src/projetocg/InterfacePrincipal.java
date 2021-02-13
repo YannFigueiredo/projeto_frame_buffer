@@ -231,6 +231,11 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         });
 
         botaoRecorteLinha.setText("Recorte linha");
+        botaoRecorteLinha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRecorteLinhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -549,6 +554,16 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             bresenham.iniciar_breserham(p1.x, p2.x, p1.y, p2.y, TAMPIXEL, qtde_pixels, g);
         }
     }//GEN-LAST:event_botaoRecortePoligonoActionPerformed
+
+    private void botaoRecorteLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRecorteLinhaActionPerformed
+        Recorte recorte = new Recorte();
+        Graphics g = painelFrameBuffer.getGraphics();
+        
+        Pontos p1 = new Pontos(0, 3);
+        Pontos p2 = new Pontos(3, 9);
+        
+        recorte.cohen_sutherland(p1, p2, xmin, xmax, ymin, ymax, TAMPIXEL, qtde_pixels, g);
+    }//GEN-LAST:event_botaoRecorteLinhaActionPerformed
 
     /**
      * @param args the command line arguments

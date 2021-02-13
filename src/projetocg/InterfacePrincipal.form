@@ -471,6 +471,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Recorte linha"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRecorteLinhaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

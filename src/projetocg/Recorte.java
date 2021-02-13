@@ -1,5 +1,6 @@
 package projetocg;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class Recorte {
@@ -115,5 +116,61 @@ public class Recorte {
         
         //desenharPoligonoRecortado(novo_poligono3, g);
         return novo_poligono3;
+    }
+    
+    public boolean verificaX(int x,  int xmin, int xmax){
+        if(x >= xmin && x <= xmax){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public boolean verificaY(int y, int ymin, int ymax){
+        if(y >= ymin && y <= ymax){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public void cohen_sutherland(Pontos p1, Pontos p2, int xmin, int xmax, int ymin, int ymax, int tam, int qtde, Graphics g){
+        Bresenham bresenham = new Bresenham();
+        if(verificaX(p1.x, xmin, xmax) == true && verificaX(p2.x, xmin, xmax) == true && verificaY(p1.y, ymin, ymax) == true && verificaY(p2.y, ymin, ymax) == true){
+            bresenham.iniciar_breserham(p1.x, p2.x, p1.y, p2.y, tam, qtde, g);
+        }else if(verificaX(p1.x, xmin, xmax) == false && verificaX(p2.x, xmin, xmax) == false && verificaY(p1.y, ymin, ymax) == false && verificaY(p2.y, ymin, ymax) == false){
+            //Os pontos estão todos fora da janela de recorte
+        }else{
+            //Verifica se os pontos estão fora quanto a xmin e xmax, senão estão fora quanto a ymin e ymax
+            if(verificaX(p1.x, xmin, xmax) == false || verificaX(p2.x, xmin, xmax) == false){
+                if(p1.x < xmin){
+                    Pontos pi = new Pontos(xmin, Math.round((xmin-p1.x)*(p2.y-p1.y*1.f)/(p2.x*1.f-p1.x)+p1.y));
+                    cohen_sutherland(pi, p2, xmin, xmax, ymin, ymax, tam, qtde, g);
+                }else if(p1.x > xmax){
+                    Pontos pi = new Pontos(xmax, Math.round((xmax-p1.x)*(p2.y-p1.y*1.f)/(p2.x*1.f-p1.x)+p1.y));
+                    cohen_sutherland(pi, p2, xmin, xmax, ymin, ymax, tam, qtde, g);
+                }else if(p2.x < xmin){
+                    Pontos pi = new Pontos(xmin, Math.round((xmin-p1.x)*(p2.y-p1.y*1.f)/(p2.x*1.f-p1.x)+p1.y));
+                    cohen_sutherland(p1, pi, xmin, xmax, ymin, ymax, tam, qtde, g);
+                }else if(p2.x > xmax){
+                    Pontos pi = new Pontos(xmax, Math.round((xmax-p1.x)*(p2.y-p1.y*1.f)/(p2.x*1.f-p1.x)+p1.y));
+                    cohen_sutherland(p1, pi, xmin, xmax, ymin, ymax, tam, qtde, g);
+                }
+            }else{
+                if(p1.y < ymin){
+                    Pontos pi = new Pontos(Math.round((ymin-p1.y)*(p2.x-p1.x*1.f)/(p2.y*1.f-p1.y)+p1.x), ymin);
+                    cohen_sutherland(pi, p2, xmin, xmax, ymin, ymax, tam, qtde, g);
+                }else if(p1.y > ymax){
+                    Pontos pi = new Pontos(Math.round((ymax-p1.y)*(p2.x-p1.x*1.f)/(p2.y*1.f-p1.y)+p1.x), ymax);
+                    cohen_sutherland(pi, p2, xmin, xmax, ymin, ymax, tam, qtde, g);
+                }else if(p2.y < ymin){
+                    Pontos pi = new Pontos(Math.round((ymin-p1.y)*(p2.x-p1.x*1.f)/(p2.y*1.f-p1.y)+p1.x), ymin);
+                    cohen_sutherland(p1, pi, xmin, xmax, ymin, ymax, tam, qtde, g);
+                }else if(p2.y > ymax){
+                    Pontos pi = new Pontos(Math.round((ymax-p1.y)*(p2.x-p1.x*1.f)/(p2.y*1.f-p1.y)+p1.x), ymax);
+                    cohen_sutherland(p1, pi, xmin, xmax, ymin, ymax, tam, qtde, g);
+                }
+            }
+        }
     }
 }
