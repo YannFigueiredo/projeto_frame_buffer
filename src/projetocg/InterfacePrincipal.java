@@ -10,11 +10,12 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     public int HEIGHT = 640;
     public int WIDTH  =  640;
     public int TAMPIXEL = 20;
-    public boolean controle_grid = false;
+    public boolean controle_grid = false, controle_desenho = false;
     public int qtde_pixels = (WIDTH - TAMPIXEL)/TAMPIXEL;
     public int xInicial = 0, yInicial = 0, xFinal = 0, yFinal = 0;
-    public ArrayList<Pontos> arestas_poligono = new ArrayList<>(); //P1 e P2 das arestas
-    public ArrayList<Pontos> pontos_poligono = new ArrayList<>(); //Todos os pontos
+    public ArrayList<Pontos> arestas_poligono = new ArrayList<>(); //P1 e P2 das arestas de um polígono
+    public ArrayList<Pontos> pontos_poligono = new ArrayList<>(); //Todos os pontos de um polígono
+    public ArrayList<Pontos> linha = new ArrayList<>(); //P1 e P2 de uma linha
     public int ymin, ymax, xmin, xmax;
     /**
      * Creates new form InterfacePrincipal
@@ -72,6 +73,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         botaoPreenchimentoVarredura = new javax.swing.JButton();
         botaoRecortePoligono = new javax.swing.JButton();
         botaoRecorteLinha = new javax.swing.JButton();
+        botaoDesligarDesenho = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1100, 680));
@@ -231,6 +233,18 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         });
 
         botaoRecorteLinha.setText("Recorte linha");
+        botaoRecorteLinha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRecorteLinhaActionPerformed(evt);
+            }
+        });
+
+        botaoDesligarDesenho.setText("Desligar desenho");
+        botaoDesligarDesenho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoDesligarDesenhoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -316,9 +330,10 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                                     .addComponent(botaoRecorteLinha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(botaoPreenchimentoVarredura, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(botaoPreenchimentoRecursivo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(botaoRecortePoligono, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(botaoRecortePoligono, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(botaoDesligarDesenho, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jLabel1))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,31 +362,33 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(botaoLinha)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botaoPoligono))
+                                .addComponent(botaoPoligono)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelCentro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(xCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelXCentro)
+                                    .addComponent(labelYCentro)
+                                    .addComponent(yCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelRaio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelRaioR))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botaoCirculo)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(botaoPreenchimentoVarredura)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(botaoRecortePoligono)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botaoRecorteLinha)))
-                        .addGap(18, 18, 18)
-                        .addComponent(labelCentro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(xCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelXCentro)
-                            .addComponent(labelYCentro)
-                            .addComponent(yCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelRaio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelRaioR))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botaoCirculo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
+                                .addComponent(botaoRecorteLinha)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botaoDesligarDesenho)))
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelXMin)
@@ -418,7 +435,12 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         xFinal = Integer.parseInt(xFinalLinha.getText());
         yFinal = Integer.parseInt(yFinalLinha.getText());
         
-        bresenham.iniciar_breserham(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
+        if(controle_desenho == true){
+            linha.add(new Pontos(xInicial, yInicial));
+            linha.add(new Pontos(xFinal, yFinal));
+        }else{
+            bresenham.iniciar_breserham(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
+        }
     }//GEN-LAST:event_botaoLinhaActionPerformed
 
     private void xInicialLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xInicialLinhaActionPerformed
@@ -506,16 +528,19 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         xFinal = Integer.parseInt(xFinalLinha.getText());
         yFinal = Integer.parseInt(yFinalLinha.getText());
         
-        bresenham.iniciar_breserham(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
-        
-        //Adiciona P1 e P2 de uma aresta do poligono em um array
-        arestas_poligono.add(new Pontos(xInicial, yInicial));
-        arestas_poligono.add(new Pontos(xFinal, yFinal));
-        
-        //Adiciona todos os pontos em um array
-        for(int i = 0; i<pontos_aresta.size(); i++){
-            pontos_poligono.add(new Pontos(pontos_aresta.get(i).x, pontos_aresta.get(i).y));
+        if(controle_desenho == true){
+            //Adiciona P1 e P2 de uma aresta do poligono em um array
+            arestas_poligono.add(new Pontos(xInicial, yInicial));
+        }else{
+            pontos_aresta = bresenham.iniciar_breserham(xInicial, xFinal, yInicial, yFinal, TAMPIXEL, qtde_pixels, g);
+            
+            //Adiciona todos os pontos em um array
+            for(int i = 0; i<pontos_aresta.size(); i++){
+                pontos_poligono.add(new Pontos(pontos_aresta.get(i).x, pontos_aresta.get(i).y));
+            }
         }
+        
+        
     }//GEN-LAST:event_botaoPoligonoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -535,12 +560,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         Bresenham bresenham = new Bresenham();
         Graphics g = painelFrameBuffer.getGraphics();
         
-        pontos_poligono.add(new Pontos(3, 1));
-        pontos_poligono.add(new Pontos(0, 4));
-        pontos_poligono.add(new Pontos(3, 7));
-        pontos_poligono.add(new Pontos(6, 4));
-        
-        ArrayList<Pontos> poligono_recortado = recorte.sutherland_hodgman(pontos_poligono, xmin, xmax, ymin, ymax);
+        ArrayList<Pontos> poligono_recortado = recorte.sutherland_hodgman(arestas_poligono, xmin, xmax, ymin, ymax);
         
         for(int i = 0; i < poligono_recortado.size(); i++){
             Pontos p1 = poligono_recortado.get(i);
@@ -550,9 +570,21 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botaoRecortePoligonoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void botaoRecorteLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRecorteLinhaActionPerformed
+        Recorte recorte = new Recorte();
+        Graphics g = painelFrameBuffer.getGraphics();
+        
+        recorte.cohen_sutherland(linha.get(0), linha.get(1), xmin, xmax, ymin, ymax, TAMPIXEL, qtde_pixels, g);
+    }//GEN-LAST:event_botaoRecorteLinhaActionPerformed
+
+    private void botaoDesligarDesenhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDesligarDesenhoActionPerformed
+        if(controle_desenho == false){
+            controle_desenho = true; 
+        }else{
+            controle_desenho = false;
+        }
+    }//GEN-LAST:event_botaoDesligarDesenhoActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -590,6 +622,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCirculo;
     private javax.swing.JButton botaoCriarJanela;
+    private javax.swing.JToggleButton botaoDesligarDesenho;
     private javax.swing.JToggleButton botaoGrid;
     private javax.swing.JButton botaoLinha;
     private javax.swing.JButton botaoPoligono;

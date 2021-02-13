@@ -126,13 +126,14 @@
                                   <Component id="botaoPreenchimentoVarredura" min="-2" pref="110" max="-2" attributes="0"/>
                                   <Component id="botaoPreenchimentoRecursivo" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                                   <Component id="botaoRecortePoligono" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="botaoDesligarDesenho" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -166,6 +167,26 @@
                               <Component id="botaoLinha" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="botaoPoligono" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="labelCentro" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="xCentro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelXCentro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelYCentro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="yCentro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="labelRaio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="raio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelRaioR" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="botaoCirculo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="botaoPreenchimentoVarredura" min="-2" max="-2" attributes="0"/>
@@ -173,28 +194,10 @@
                               <Component id="botaoRecortePoligono" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="botaoRecorteLinha" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="botaoDesligarDesenho" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="labelCentro" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="xCentro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelXCentro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelYCentro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="yCentro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelRaio" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="raio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelRaioR" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="botaoCirculo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelXMin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -471,6 +474,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Recorte linha"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRecorteLinhaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="botaoDesligarDesenho">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Desligar desenho"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoDesligarDesenhoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
