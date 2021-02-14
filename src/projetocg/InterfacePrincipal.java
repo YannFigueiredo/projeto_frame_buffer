@@ -735,6 +735,8 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         //painelFrameBuffer.repaint();
         Graphics g = painelFrameBuffer.getGraphics(); 
         
+        //g.drawLine(0.5, 2.6, 3.6, 2.8);
+        
         float x = Float.parseFloat(xTransformacao.getText());
         float y = Float.parseFloat(yTransformacao.getText());
         int ponto_fixo = Integer.parseInt(pt_fixo.getText());

@@ -40,14 +40,21 @@ public class Transformacao {
             Pontos p1 = poligono.get(i);
             Pontos p2 = poligono.get((i+1)%poligono.size());
             
+            System.out.println("cos: "+Math.cos(ang)+", sen: "+Math.sin(ang));
+            
             int x1 = (int) Math.round(p1.x*Math.cos(ang)-p1.y*Math.sin(ang));
             int y1 = (int) Math.round(p1.x*Math.sin(ang)+p1.y*Math.cos(ang));
             int x2 = (int) Math.round(p2.x*Math.cos(ang)-p2.y*Math.sin(ang));
             int y2 = (int) Math.round(p2.x*Math.sin(ang)+p2.y*Math.cos(ang));
             
-            System.out.println("Pintado pontos antes ("+x1+", "+y1+")("+x2+", "+y2+")");
+            /*float x1 = (float) (p1.x*Math.cos(ang)-p1.y*Math.sin(ang));
+            float y1 = (float) (p1.x*Math.sin(ang)+p1.y*Math.cos(ang));
+            float x2 = (float) (p2.x*Math.cos(ang)-p2.y*Math.sin(ang));
+            float y2 = (float) (p2.x*Math.sin(ang)+p2.y*Math.cos(ang));*/
             
-            if(x1 < 0){
+            //System.out.println("Pintado pontos antes ("+x1+", "+y1+")("+x2+", "+y2+")");
+            
+            /*if(x1 < 0){
                 x1 = x1*-1;
             }
             if(y1 < 0){
@@ -58,7 +65,7 @@ public class Transformacao {
             }
             if(y2 < 0){
                 y2 = y2*-1;
-            }
+            }*/
             
             //Desenha o polígono rotacionado
             g.setColor(Color.red);
