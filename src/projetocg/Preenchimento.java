@@ -10,13 +10,13 @@ public class Preenchimento{
     ArrayList<Pontos> lista_pontos = new ArrayList<>();
     int TAMPIXEL, qtde_pixels;
     
-    public void preenchimento(ArrayList<Pontos> pontos, String tipo_preenchimento, int TAMPIXEL1, int qtde_pixels1, Graphics g){
+    public void preenchimento(ArrayList<Pontos> pontos, String tipo_preenchimento, Pontos pt_poligono, int TAMPIXEL1, int qtde_pixels1, Graphics g){
         lista_pontos = pontos;
         TAMPIXEL = TAMPIXEL1;
         qtde_pixels = qtde_pixels1;
         
         if(tipo_preenchimento == "recursivo"){
-            preenchimento_recursivo(3, 4, g);
+            preenchimento_recursivo(pt_poligono.x, pt_poligono.y, g);
         }else{
             //Preenchimento por pts críticos
         }

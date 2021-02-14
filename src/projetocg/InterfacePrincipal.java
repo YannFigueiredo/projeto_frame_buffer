@@ -75,14 +75,23 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         botaoRecorteLinha = new javax.swing.JButton();
         botaoDesligarDesenho = new javax.swing.JToggleButton();
         jLabel3 = new javax.swing.JLabel();
-        xTranslacao = new javax.swing.JTextField();
-        yTranslacao = new javax.swing.JTextField();
+        xTransformacao = new javax.swing.JTextField();
+        yTransformacao = new javax.swing.JTextField();
         labelXTranslacao = new javax.swing.JLabel();
         labelYTranslacao = new javax.swing.JLabel();
         botaoTranslacao = new javax.swing.JButton();
         botaoEscala = new javax.swing.JButton();
         pt_fixo = new javax.swing.JTextField();
         labelPontoFixo = new javax.swing.JLabel();
+        xInterno = new javax.swing.JTextField();
+        yInterno = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        angulo = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        botaoRotacao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1100, 680));
@@ -277,6 +286,23 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
         labelPontoFixo.setText("Ponto fixo");
 
+        jLabel4.setText("y interno");
+
+        jLabel5.setText("x interno");
+
+        jLabel6.setText("Ângulo");
+
+        jLabel7.setText("jLabel7");
+
+        jTextField2.setText("jTextField2");
+
+        botaoRotacao.setText("Rotação");
+        botaoRotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRotacaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -284,6 +310,9 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(painelFrameBuffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -300,11 +329,18 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(labelYCentro)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(yCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(yCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton1))
                                     .addComponent(labelRaio)
                                     .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(botaoCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(84, 84, 84)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelBotaoGrid)
+                                            .addComponent(botaoGrid)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelXMin)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -352,38 +388,48 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                                         .addComponent(botaoPoligono, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(botaoPreenchimentoVarredura, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(botaoRecorteLinha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(botaoRecortePoligono, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(botaoDesligarDesenho, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(botaoPreenchimentoRecursivo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(botaoPreenchimentoVarredura, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(botaoRecortePoligono, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(botaoPreenchimentoRecursivo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(yInterno, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(xInterno, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel4)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelXTranslacao)
                                 .addGap(2, 2, 2)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(xTranslacao, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(labelYTranslacao)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(yTranslacao, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(botaoTranslacao, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel3))
-                                        .addGap(4, 4, 4)
-                                        .addComponent(labelPontoFixo)
+                                        .addComponent(xTransformacao, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(pt_fixo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(botaoEscala, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(labelBotaoGrid)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(botaoGrid)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton1))))))
-                    .addComponent(jLabel1))
-                .addContainerGap(83, Short.MAX_VALUE))
+                                        .addComponent(labelYTranslacao)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(yTransformacao, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(botaoTranslacao, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addGap(4, 4, 4)
+                                .addComponent(labelPontoFixo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pt_fixo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(botaoEscala, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(angulo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botaoRotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 49, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,14 +437,17 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(labelPontoInicialLinha)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelPontoInicialLinha)
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(xInicialLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(yInicialLinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelXInicialLinha)
                             .addComponent(labelYInicialLinha)
-                            .addComponent(botaoPreenchimentoRecursivo))
+                            .addComponent(botaoPreenchimentoRecursivo)
+                            .addComponent(xInterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -420,17 +469,8 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                                     .addComponent(xCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelXCentro)
                                     .addComponent(labelYCentro)
-                                    .addComponent(yCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelRaio)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelRaioR))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(botaoCirculo)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2))
+                                    .addComponent(yCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(botaoPreenchimentoVarredura)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -438,14 +478,34 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(botaoRecorteLinha)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botaoDesligarDesenho)))
-                        .addGap(6, 6, 6)
+                                .addComponent(botaoDesligarDesenho))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(yInterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelRaio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelXMin)
-                            .addComponent(xMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelXMax)
-                            .addComponent(xMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelRaioR))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botaoCirculo)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelXMin)
+                                    .addComponent(xMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelXMax)
+                                    .addComponent(xMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelBotaoGrid)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botaoGrid)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelYMin)
                             .addComponent(yMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -459,8 +519,8 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(xTranslacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(yTranslacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(xTransformacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(yTransformacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labelXTranslacao)
                                     .addComponent(labelYTranslacao))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -472,11 +532,14 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(botaoEscala)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelBotaoGrid)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(angulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoRotacao))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(botaoGrid)
-                            .addComponent(jButton1)))
+                            .addComponent(jLabel7)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(painelFrameBuffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
@@ -565,7 +628,9 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         Graphics g = painelFrameBuffer.getGraphics();
         Preenchimento preenchimento = new Preenchimento();
         
-        preenchimento.preenchimento(pontos_poligono, "recursivo", TAMPIXEL, qtde_pixels, g);
+        Pontos pt_poligono = new Pontos(Integer.parseInt(xInterno.getText()), Integer.parseInt(yInterno.getText()));
+        
+        preenchimento.preenchimento(pontos_poligono, "recursivo", pt_poligono, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoPreenchimentoRecursivoActionPerformed
 
     private void botaoCriarJanelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarJanelaActionPerformed
@@ -607,9 +672,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             for(int i = 0; i<pontos_aresta.size(); i++){
                 pontos_poligono.add(new Pontos(pontos_aresta.get(i).x, pontos_aresta.get(i).y));
             }
-        }
-        
-        
+        }  
     }//GEN-LAST:event_botaoPoligonoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -656,40 +719,43 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
     private void botaoTranslacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTranslacaoActionPerformed
         Bresenham bresenham = new Bresenham();
+        Transformacao transformacao = new Transformacao();
         //painelFrameBuffer.repaint();
         Graphics g = painelFrameBuffer.getGraphics();       
         
-        int x = Integer.parseInt(xTranslacao.getText());
-        int y = Integer.parseInt(yTranslacao.getText());
+        int x = Integer.parseInt(xTransformacao.getText());
+        int y = Integer.parseInt(yTransformacao.getText());
         
-        for(int i = 0;  i < arestas_poligono.size(); i++){
-            Pontos p1 = arestas_poligono.get(i);
-            Pontos p2 = arestas_poligono.get((i+1)%arestas_poligono.size());
-            
-            //Desenha o polígono deslocado
-            g.setColor(Color.red);
-            bresenham.iniciar_breserham(p1.x+x, p2.x+x, p1.y+y, p2.y+y, TAMPIXEL, qtde_pixels, g);
-        }
+        transformacao.translacao(arestas_poligono, x, y, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoTranslacaoActionPerformed
 
     private void botaoEscalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEscalaActionPerformed
         Bresenham bresenham = new Bresenham();
+        Transformacao transformacao = new Transformacao();
         //painelFrameBuffer.repaint();
         Graphics g = painelFrameBuffer.getGraphics(); 
         
-        int x = Integer.parseInt(xTranslacao.getText());
-        int y = Integer.parseInt(yTranslacao.getText());
+        //g.drawLine(0.5, 2.6, 3.6, 2.8);
+        
+        float x = Float.parseFloat(xTransformacao.getText());
+        float y = Float.parseFloat(yTransformacao.getText());
         int ponto_fixo = Integer.parseInt(pt_fixo.getText());
         
-        for(int i = 0;  i < arestas_poligono.size(); i++){
-            Pontos p1 = arestas_poligono.get(i);
-            Pontos p2 = arestas_poligono.get((i+1)%arestas_poligono.size());
-            
-            //Desenha o polígono deslocado
-            g.setColor(Color.red);
-            bresenham.iniciar_breserham(p1.x*x, p2.x*x, p1.y*y, p2.y*y, TAMPIXEL, qtde_pixels, g);
-        }
+        transformacao.escala(arestas_poligono, x, y, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoEscalaActionPerformed
+
+    private void botaoRotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRotacaoActionPerformed
+        Bresenham bresenham = new Bresenham();
+        Transformacao transformacao = new Transformacao();
+        //painelFrameBuffer.repaint();
+        Graphics g = painelFrameBuffer.getGraphics(); 
+        
+        int angulo_graus = Integer.parseInt(angulo.getText());
+        
+        double ang = Math.toRadians(angulo_graus);
+        
+        transformacao.rotacao(arestas_poligono, ang, TAMPIXEL, qtde_pixels, g);
+    }//GEN-LAST:event_botaoRotacaoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -718,6 +784,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         /* Create and display the form */
        
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new InterfacePrincipal().setVisible(true);
             }
@@ -726,6 +793,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField angulo;
     private javax.swing.JButton botaoCirculo;
     private javax.swing.JButton botaoCriarJanela;
     private javax.swing.JToggleButton botaoDesligarDesenho;
@@ -737,11 +805,17 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoPreenchimentoVarredura;
     private javax.swing.JButton botaoRecorteLinha;
     private javax.swing.JButton botaoRecortePoligono;
+    private javax.swing.JButton botaoRotacao;
     private javax.swing.JButton botaoTranslacao;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel labelBotaoGrid;
     private javax.swing.JLabel labelCentro;
     private javax.swing.JLabel labelPontoFinalLinha;
@@ -767,15 +841,17 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField xCentro;
     private javax.swing.JTextField xFinalLinha;
     private javax.swing.JTextField xInicialLinha;
+    private javax.swing.JTextField xInterno;
     private javax.swing.JTextField xMax;
     private javax.swing.JTextField xMin;
-    private javax.swing.JTextField xTranslacao;
+    private javax.swing.JTextField xTransformacao;
     private javax.swing.JTextField yCentro;
     private javax.swing.JTextField yFinalLinha;
     private javax.swing.JTextField yInicialLinha;
+    private javax.swing.JTextField yInterno;
     private javax.swing.JTextField yMax;
     private javax.swing.JTextField yMin;
-    private javax.swing.JTextField yTranslacao;
+    private javax.swing.JTextField yTransformacao;
     // End of variables declaration//GEN-END:variables
   
 public void construirGrade(){
