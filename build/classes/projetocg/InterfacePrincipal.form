@@ -30,6 +30,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Component id="painelFrameBuffer" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -47,11 +51,20 @@
                                       <Component id="labelYCentro" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="yCentro" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="labelRaio" min="-2" max="-2" attributes="0"/>
                                   <Component id="raio" min="-2" pref="51" max="-2" attributes="0"/>
                                   <Component id="botaoCirculo" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelBotaoGrid" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botaoGrid" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -114,11 +127,22 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="botaoPreenchimentoVarredura" min="-2" pref="110" max="-2" attributes="0"/>
                                   <Component id="botaoRecorteLinha" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="botaoRecortePoligono" min="-2" pref="110" max="-2" attributes="0"/>
                                   <Component id="botaoDesligarDesenho" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="botaoPreenchimentoRecursivo" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="botaoPreenchimentoVarredura" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <Component id="botaoRecortePoligono" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <Component id="botaoPreenchimentoRecursivo" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="yInterno" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="xInterno" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -126,38 +150,39 @@
                               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="xTranslacao" min="-2" pref="51" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="labelYTranslacao" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="yTranslacao" min="-2" pref="51" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="botaoTranslacao" min="-2" pref="110" max="-2" attributes="0"/>
-                                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Component id="labelPontoFixo" min="-2" max="-2" attributes="0"/>
+                                      <Component id="xTransformacao" min="-2" pref="51" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="pt_fixo" min="-2" pref="51" max="-2" attributes="0"/>
-                                          <Component id="botaoEscala" min="-2" pref="110" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="labelYTranslacao" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="yTransformacao" min="-2" pref="51" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="labelBotaoGrid" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="botaoGrid" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="botaoTranslacao" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Component id="labelPontoFixo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="pt_fixo" min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Component id="botaoEscala" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextField2" min="-2" pref="51" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="angulo" min="-2" pref="51" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="botaoRotacao" min="-2" pref="110" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="83" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -167,7 +192,10 @@
               <EmptySpace pref="14" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="labelPontoInicialLinha" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelPontoInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="xInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -175,6 +203,7 @@
                           <Component id="labelXInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelYInicialLinha" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botaoPreenchimentoRecursivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="xInterno" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -199,18 +228,8 @@
                                   <Component id="labelXCentro" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelYCentro" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="yCentro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelRaio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="raio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelRaioR" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="botaoCirculo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="botaoPreenchimentoVarredura" min="-2" max="-2" attributes="0"/>
@@ -221,15 +240,40 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="botaoDesligarDesenho" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="yInterno" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="labelRaio" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelXMin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="xMin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelXMax" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="xMax" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="raio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelRaioR" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="botaoCirculo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelXMin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="xMin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelXMax" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="xMax" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="labelBotaoGrid" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="botaoGrid" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelYMin" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="yMin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -244,8 +288,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="xTranslacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="yTranslacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="xTransformacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="yTransformacao" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelXTranslacao" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelYTranslacao" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -262,11 +306,15 @@
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="labelBotaoGrid" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="angulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoRotacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="botaoGrid" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="painelFrameBuffer" min="-2" max="-2" attributes="0"/>
@@ -539,9 +587,9 @@
         <Property name="text" type="java.lang.String" value="Transforma&#xe7;&#xf5;es"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="xTranslacao">
+    <Component class="javax.swing.JTextField" name="xTransformacao">
     </Component>
-    <Component class="javax.swing.JTextField" name="yTranslacao">
+    <Component class="javax.swing.JTextField" name="yTransformacao">
     </Component>
     <Component class="javax.swing.JLabel" name="labelXTranslacao">
       <Properties>
@@ -575,6 +623,45 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ponto fixo"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="xInterno">
+    </Component>
+    <Component class="javax.swing.JTextField" name="yInterno">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="y interno"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="x interno"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc2;ngulo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="angulo">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel7"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoRotacao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rota&#xe7;&#xe3;o"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRotacaoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
