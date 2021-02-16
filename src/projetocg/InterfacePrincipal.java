@@ -92,6 +92,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         botaoRotacao = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1100, 680));
@@ -242,6 +243,11 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         });
 
         botaoPreenchimentoVarredura.setText("Preenc.Varred.");
+        botaoPreenchimentoVarredura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPreenchimentoVarreduraActionPerformed(evt);
+            }
+        });
 
         botaoRecortePoligono.setText("Recorte polig.");
         botaoRecortePoligono.addActionListener(new java.awt.event.ActionListener() {
@@ -303,6 +309,13 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -333,7 +346,10 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton1))
                                     .addComponent(labelRaio)
-                                    .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(90, 90, 90)
+                                        .addComponent(jButton2))
                                     .addComponent(botaoCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
@@ -488,7 +504,8 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(raio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelRaioR))
+                            .addComponent(labelRaioR)
+                            .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botaoCirculo)
                         .addGap(18, 18, 18)
@@ -630,7 +647,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         
         Pontos pt_poligono = new Pontos(Integer.parseInt(xInterno.getText()), Integer.parseInt(yInterno.getText()));
         
-        preenchimento.preenchimento(pontos_poligono, "recursivo", pt_poligono, TAMPIXEL, qtde_pixels, g);
+        preenchimento.preenchimento(pontos_poligono, arestas_poligono, "recursivo", pt_poligono, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoPreenchimentoRecursivoActionPerformed
 
     private void botaoCriarJanelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCriarJanelaActionPerformed
@@ -757,6 +774,32 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         transformacao.rotacao(arestas_poligono, ang, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoRotacaoActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Curva curva_classe = new Curva();
+        int n = 3;
+        int n_pts = 4;
+        ArrayList<PontosFloat> controle = new ArrayList<>();
+        ArrayList<PontosFloat> curva = new ArrayList<>();
+        controle.add(new PontosFloat(0, 2));
+        controle.add(new PontosFloat(3, 2));
+        controle.add(new PontosFloat(5, 2));
+        controle.add(new PontosFloat(7, 2));
+        
+        curva = curva_classe.curva_bezier(n, n_pts, controle, 1.0);
+        
+        System.out.println("\n\nPontos na interface principal");
+        for(int i = 0; i < curva.size(); i++){
+            System.out.println("x: "+curva.get(i).x+", y: "+curva.get(i).y);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void botaoPreenchimentoVarreduraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPreenchimentoVarreduraActionPerformed
+        Preenchimento preenchimento = new Preenchimento();
+        Graphics g = painelFrameBuffer.getGraphics();
+ 
+        preenchimento.preenchimento(pontos_poligono, arestas_poligono, "varredura", null, TAMPIXEL, qtde_pixels, g);
+    }//GEN-LAST:event_botaoPreenchimentoVarreduraActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -808,6 +851,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoRotacao;
     private javax.swing.JButton botaoTranslacao;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

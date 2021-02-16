@@ -55,7 +55,11 @@
                                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="labelRaio" min="-2" max="-2" attributes="0"/>
-                                  <Component id="raio" min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="raio" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Component id="botaoCirculo" min="-2" pref="120" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -252,6 +256,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="raio" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelRaioR" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="botaoCirculo" min="-2" max="-2" attributes="0"/>
@@ -557,6 +562,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Preenc.Varred."/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoPreenchimentoVarreduraActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoRecortePoligono">
       <Properties>
@@ -661,6 +669,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRotacaoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jButton2"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
