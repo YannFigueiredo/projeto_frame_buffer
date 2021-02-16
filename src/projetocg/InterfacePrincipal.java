@@ -752,12 +752,22 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         //painelFrameBuffer.repaint();
         Graphics g = painelFrameBuffer.getGraphics(); 
         
-        //g.drawLine(0.5, 2.6, 3.6, 2.8);
-        
         float x = Float.parseFloat(xTransformacao.getText());
         float y = Float.parseFloat(yTransformacao.getText());
         int ponto_fixo = Integer.parseInt(pt_fixo.getText());
         
+        arestas_poligono.add(new Pontos(5, 10));
+        arestas_poligono.add(new Pontos(10, 10));
+        arestas_poligono.add(new Pontos(10, 5));
+        arestas_poligono.add(new Pontos(5, 5));
+        
+        for(int i = 0; i < arestas_poligono.size(); i++){
+            Pontos p1 = arestas_poligono.get(i);
+            Pontos p2 = arestas_poligono.get((i+1)%arestas_poligono.size());
+            
+            bresenham.iniciar_breserham(p1.x, p2.x, p1.y, p2.y, TAMPIXEL, qtde_pixels, g);
+        }
+
         transformacao.escala(arestas_poligono, x, y, TAMPIXEL, qtde_pixels, g);
     }//GEN-LAST:event_botaoEscalaActionPerformed
 
@@ -767,8 +777,20 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         //painelFrameBuffer.repaint();
         Graphics g = painelFrameBuffer.getGraphics(); 
         
-        int angulo_graus = Integer.parseInt(angulo.getText());
+        //int angulo_graus = Integer.parseInt(angulo.getText());
+
+        arestas_poligono.add(new Pontos(15, 15));
+        arestas_poligono.add(new Pontos(20, 15));
+        arestas_poligono.add(new Pontos(20, 20));
+        arestas_poligono.add(new Pontos(15, 20));
         
+        for(int i = 0; i < arestas_poligono.size(); i++){
+            Pontos p1 = arestas_poligono.get(i);
+            Pontos p2 = arestas_poligono.get((i+1)%arestas_poligono.size());
+            
+            bresenham.iniciar_breserham(p1.x, p2.x, p1.y, p2.y, TAMPIXEL, qtde_pixels, g);
+        }
+        int angulo_graus = 30;
         double ang = Math.toRadians(angulo_graus);
         
         transformacao.rotacao(arestas_poligono, ang, TAMPIXEL, qtde_pixels, g);
